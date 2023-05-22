@@ -6,4 +6,20 @@ class Dirt{
     y=yy;
     speed=speeds;
   }
+  
+  void display(){
+    square(x,y,size);
+  }
+  
+  int getx(){
+    return x;
+  }
+  
+  int gety(){
+    return y;
+  }
+  
+  void apply(){
+    x+=speed;
+  }
 }
