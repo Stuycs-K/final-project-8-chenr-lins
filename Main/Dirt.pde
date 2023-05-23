@@ -1,16 +1,44 @@
 class Dirt{
-  int size,x,y,speed;
+  int widths,size,x,y,speed;
   
-  public Dirt(int sizes,int xx,int yy,int speeds){
-    size=sizes;
+  public Dirt(int wid, int hei, int xx,int yy){
+    widths=wid;
+    size=hei;
     x=xx;
     y=yy;
-    speed=speeds;
+    speed=-1;
   }
   
+  void stairs(){
+    rect(x,y,widths,size);
+    x+=size;
+    y-=size;
+    widths-=size;
+    rect(x,y,widths,size);
+  }
+  /*
+  void stackedrect(){
+  }
+  
+  void wall(){
+  }
+  */
+  
   void display(){
-    square(x,y,size);
-    x+=speed;();
+    int choose = (int)random(0,3);
+    if(choose==0){
+      stairs();
+    }
+    stairs();
+    /*
+    else if(choose==1){
+      stackedrect();
+    }
+    else{
+      wall();
+    }
+    */
+    x+=speed;
   }
   
   int getx(){
