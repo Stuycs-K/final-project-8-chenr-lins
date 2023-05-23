@@ -23,5 +23,7 @@ class Body {
     square(x,y,size);
   }
   
-  
+  void apply(){
+    
+  }
 }
