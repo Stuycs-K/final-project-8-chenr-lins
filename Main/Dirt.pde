@@ -1,5 +1,6 @@
 class Dirt{
   int size,x,y,speed;
+  
   public Dirt(int sizes,int xx,int yy,int speeds){
     size=sizes;
     x=xx;
@@ -9,6 +10,7 @@ class Dirt{
   
   void display(){
     square(x,y,size);
+    x+=speed;();
   }
   
   int getx(){
@@ -19,7 +21,7 @@ class Dirt{
     return y;
   }
   
-  void apply(){
-    x+=speed;
+  int getsize(){
+    return size;
   }
 }
