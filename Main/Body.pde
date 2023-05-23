@@ -1,8 +1,9 @@
 class Body {
-  double x, y, xspeed, yspeed;
+  int x, y;
+  double xspeed, yspeed;
   int size;
   
-  pubic Body(double xx, double yy, int s) {
+  public Body(int xx, int yy, int s) {
     x=xx;
     y=yy;
     size=s;
