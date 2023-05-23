@@ -15,7 +15,7 @@ info
 
 ### date 5/22
 
-Added basic layout for Dirt file
+Added basic layout for Dirt+Main file, write keypress for Main
 
 ### date y
 
