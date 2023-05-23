@@ -7,6 +7,7 @@ int birdCount;
 
 void setup(){
   size(400,400);
+  background(135,206,235);
   birdList = new ArrayList<Body>();
   //temp numbers
   x = 100;
@@ -16,7 +17,7 @@ void setup(){
 }
 
 void draw(){
-  background(135,206,235);
+  
 }
 
 void keyPressed(){
@@ -25,5 +26,6 @@ void keyPressed(){
     birdList.add(b);
     y-=size;
     birdCount++;
+    b.display();
   }
 }
