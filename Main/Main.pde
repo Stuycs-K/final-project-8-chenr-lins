@@ -4,20 +4,22 @@ int size;
 ArrayList<Body>birdList;
 int maxBird;
 int birdCount;
+Dirt test;
 
 void setup(){
   size(400,400);
-  background(135,206,235);
   birdList = new ArrayList<Body>();
   //temp numbers
   x = 100;
   y = height-10;
   size = 10;
   maxBird = 20;
+  test = new Dirt(40,10,width,height/2);
 }
 
 void draw(){
-  
+  background(135,206,235);
+  test.display();
 }
 
 void keyPressed(){
