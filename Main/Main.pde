@@ -16,9 +16,9 @@ void setup(){
   removed=new ArrayList<Body>();
   //temp numbers
   x = 100;
-  size = 10;
+  size = 20;
   y = height-2*size;
-  maxBird = 20;
+  maxBird = 10;
   test = new Dirt(80,size,width,height/2);
 }
 
