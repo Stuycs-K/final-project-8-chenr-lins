@@ -5,21 +5,25 @@ ArrayList<Body>birdList;
 ArrayList<Body>removed;
 int maxBird;
 int birdCount;
+ArrayList<Dirt>obstacle;
 Dirt test;
+int time = 0;
 
 void setup(){
   size(400,400);
   birdList = new ArrayList<Body>();
+  obstacle = new ArrayList<Dirt>();
   removed=new ArrayList<Body>();
   //temp numbers
   x = 100;
   size = 20;
-  y = height-size;
-  maxBird = 20;
-  test = new Dirt(40,size,width,height/2);
+  y = height-2*size;
+  maxBird = 10;
+  test = new Dirt(80,size,width,height/2);
 }
 
 void draw(){
+  time++;
   background(135,206,235);
   for(int i=0; i<birdList.size(); i++){
     Body b=birdList.get(i);
@@ -33,7 +37,17 @@ void draw(){
   for (int i=0; i<removed.size(); i++) {
     
   }
-  test.display();
+  if(time%200==0){
+    Dirt x = new Dirt(80,size,width,height-2*size);
+    obstacle.add(x);
+  }
+  for(int i=0; i<obstacle.size();i++){
+    obstacle.get(i).display();
+    if(obstacle.get(i).getx()<0){
+      obstacle.remove(i);
+      i--;
+    }
+  }
 }
 
 void keyPressed(){
