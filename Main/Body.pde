@@ -23,7 +23,34 @@ class Body {
     square(x,y,size);
   }
   
-  void apply(){
-    
+  void apply(int pos){
+    if(x+size>pos){
+      yspeed=0;
+    }
+    else{
+      yspeed=1;
+    }
+    if(x>-1*size){
+      x+=xspeed;
+    }
+    if(y<height-size){
+      y+=yspeed;
+    }
+  }
+  
+  void apply(Body other){
+    x+=xspeed;
+    if(y<other.y-size){
+      y+=yspeed;
+    }
+  }
+  
+  boolean touch(Dirt sv){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+      xspeed=-1;
+      apply(0);
+      return true;
+    }
+    return false;
   }
 }
