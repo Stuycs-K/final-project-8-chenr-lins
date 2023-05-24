@@ -11,14 +11,17 @@ void setup(){
   birdList = new ArrayList<Body>();
   //temp numbers
   x = 100;
-  size = 10;
+  size = 20;
   y = height-size;
   maxBird = 20;
-  test = new Dirt(40,10,width,height/2);
+  test = new Dirt(40,size,width,height/2);
 }
 
 void draw(){
   background(135,206,235);
+  for(int i=0; i<birdList.size(); i++){
+    birdList.get(i).display();
+  }
   test.display();
 }
 
