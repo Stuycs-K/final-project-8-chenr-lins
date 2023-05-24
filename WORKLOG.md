@@ -2,7 +2,7 @@
 
 ## GROUP MEMBER 1: Regina
 
-### date 5/22
+### 5/22
 
 Added basic layout for Body and Main file
 
@@ -13,10 +13,11 @@ info
 
 ## GROUP MEMBER 2: Stephanie
 
-### date 5/22
+### 5/22
 
 Added basic layout for Dirt+Main file, write keypress for Main
 
-### date y
+### 5/23
 
-info
+Dirt: add three different shapes for obstacles, display modified to randomly choose from the 3
+Main: add variables/temporary values for testing. draw displays all blocks
