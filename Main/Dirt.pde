@@ -4,7 +4,7 @@ class Dirt{
   
   public Dirt(int wid, int sizes, int xx,int yy){
     widths=wid;
-    size=sizes*(int)random(1,5);
+    size=sizes;
     x=xx;
     y=yy;
     speed=-1;
@@ -21,7 +21,6 @@ class Dirt{
     rect(x,y-2*size,widths,size);
     rect(x,y-4*size,widths,size);
   }
-  
   void wall(){
     rect(x,y,widths,size);
   }
