@@ -35,7 +35,9 @@ void draw(){
     }
   }
   for (int i=0; i<removed.size(); i++) {
-    
+    Body b=removed.get(i);
+    b.display();
+    b.apply(x);
   }
   if(time%200==0){
     Dirt x = new Dirt(80,size,width,height-2*size);
