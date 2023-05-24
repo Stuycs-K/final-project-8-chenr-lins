@@ -10,6 +10,7 @@ Dirt test;
 void setup(){
   size(400,400);
   birdList = new ArrayList<Body>();
+  removed=new ArrayList<Body>();
   //temp numbers
   x = 100;
   size = 20;
@@ -23,6 +24,14 @@ void draw(){
   for(int i=0; i<birdList.size(); i++){
     Body b=birdList.get(i);
     b.display();
+    if (b.touch(test)) {
+      removed.add(b);
+      birdCount--;
+      birdList.remove(i);
+    }
+  }
+  for (int i=0; i<removed.size(); i++) {
+    
   }
   test.display();
 }
