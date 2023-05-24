@@ -8,7 +8,7 @@ Added basic layout for Body and Main file
 
 ### 5/23
 
-Body: add two apply methods and a touch method if Body touches Dirt
+Body: add two apply methods and a touch method if Body touches Dirt \n
 Main: tried pushing Body off when Dirt touches it; didn't work; Dirt stop moving completely
 
 
