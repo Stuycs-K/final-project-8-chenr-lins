@@ -13,6 +13,7 @@ void setup(){
   size(400,400);
   birdList = new ArrayList<Body>();
   obstacle = new ArrayList<Dirt>();
+  removed=new ArrayList<Body>();
   //temp numbers
   x = 100;
   size = 20;
@@ -27,6 +28,14 @@ void draw(){
   for(int i=0; i<birdList.size(); i++){
     Body b=birdList.get(i);
     b.display();
+    if (b.touch(test)) {
+      removed.add(b);
+      birdCount--;
+      birdList.remove(i);
+    }
+  }
+  for (int i=0; i<removed.size(); i++) {
+    
   }
   if(time%200==0){
     Dirt x = new Dirt(80,size,width,height-2*size);
