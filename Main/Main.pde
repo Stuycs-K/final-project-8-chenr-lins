@@ -2,22 +2,29 @@ int x;
 int y;
 int size;
 ArrayList<Body>birdList;
+ArrayList<Body>removed;
 int maxBird;
 int birdCount;
+Dirt test;
 
 void setup(){
   size(400,400);
-  background(135,206,235);
   birdList = new ArrayList<Body>();
   //temp numbers
   x = 100;
-  y = height-10;
-  size = 10;
+  size = 20;
+  y = height-size;
   maxBird = 20;
+  test = new Dirt(40,size,width,height/2);
 }
 
 void draw(){
-  
+  background(135,206,235);
+  for(int i=0; i<birdList.size(); i++){
+    Body b=birdList.get(i);
+    b.display();
+  }
+  test.display();
 }
 
 void keyPressed(){
