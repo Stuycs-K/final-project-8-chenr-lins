@@ -8,7 +8,7 @@ Added basic layout for Body and Main file
 
 ### 5/23
 
-Body: add two apply methods and a touch method if Body touches Dirt \n
+Body: add two apply methods and a touch method if Body touches Dirt<br>
 Main: tried pushing Body off when Dirt touches it; didn't work; Dirt stop moving completely
 
 
@@ -20,5 +20,5 @@ Added basic layout for Dirt+Main file, write keypress for Main
 
 ### 5/23
 
-Dirt: add three different shapes for obstacles, display modified to randomly choose from the 3
+Dirt: add three different shapes for obstacles, display modified to randomly choose from the 3<br>
 Main: add variables/temporary values for testing. draw displays all blocks
