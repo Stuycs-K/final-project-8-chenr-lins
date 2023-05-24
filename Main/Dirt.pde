@@ -2,9 +2,9 @@ class Dirt{
   int widths,size,x,y,speed;
   int choose;
   
-  public Dirt(int wid, int hei, int xx,int yy){
+  public Dirt(int wid, int sizes, int xx,int yy){
     widths=wid;
-    size=hei;
+    size=sizes*(int)random(1,5);
     x=xx;
     y=yy;
     speed=-1;
