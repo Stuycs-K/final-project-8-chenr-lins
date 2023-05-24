@@ -11,8 +11,8 @@ void setup(){
   birdList = new ArrayList<Body>();
   //temp numbers
   x = 100;
-  y = height-10;
   size = 10;
+  y = height-size;
   maxBird = 20;
   test = new Dirt(40,10,width,height/2);
 }
