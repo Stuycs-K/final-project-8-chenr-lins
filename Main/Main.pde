@@ -2,6 +2,7 @@ int x;
 int y;
 int size;
 ArrayList<Body>birdList;
+ArrayList<Body>removed;
 int maxBird;
 int birdCount;
 Dirt test;
@@ -20,7 +21,8 @@ void setup(){
 void draw(){
   background(135,206,235);
   for(int i=0; i<birdList.size(); i++){
-    birdList.get(i).display();
+    Body b=birdList.get(i);
+    b.display();
   }
   test.display();
 }
