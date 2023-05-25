@@ -14,6 +14,8 @@ void setup(){
   birdList = new ArrayList<Body>();
   obstacle = new ArrayList<Dirt>();
   removed=new ArrayList<Body>();
+  Body down=new Body(x-size,y,0);
+  birdList.add(down);
   //temp numbers
   x = 100;
   size = 20;
@@ -25,20 +27,30 @@ void setup(){
 void draw(){
   time++;
   background(135,206,235);
-  for(int i=0; i<birdList.size(); i++){
+  for(int i=1; i<birdList.size(); i++){
     Body b=birdList.get(i);
     b.display();
-    if (b.touch(test)) {
-      removed.add(b);
-      birdCount--;
-      birdList.remove(i);
-    }
+    //if(obstacle.size()>0){
+      if (b.touch(test)) {
+        birdList.remove(i);
+        removed.add(b);
+        y+=size;
+        birdCount--;
+      }
+    //}
+    b.apply(birdList.get(i-1));
   }
   for (int i=0; i<removed.size(); i++) {
-    Body b=removed.get(i);
-    b.display();
-    b.apply(x);
+      Body b=removed.get(i);
+      b.display();
+      b.apply(x);
+      if(removed.get(i).getx()<-removed.get(i).getsize()){
+      removed.remove(i);
+      i--;
+    }
   }
+  test.display();
+  /*
   if(time%200==0){
     Dirt x = new Dirt(80,size,width,height-2*size);
     obstacle.add(x);
@@ -50,6 +62,7 @@ void draw(){
       i--;
     }
   }
+  */
 }
 
 void keyPressed(){

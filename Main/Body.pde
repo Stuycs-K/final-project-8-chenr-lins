@@ -19,6 +19,10 @@ class Body {
     return y;
   }
   
+  int getsize(){
+    return size;
+  }
+  
   void display(){
     square(x,y,size);
   }
