@@ -45,7 +45,7 @@ void draw(){
   }
   for(int i=0; i<obstacle.size();i++){
     obstacle.get(i).display();
-    if(obstacle.get(i).getx()<0){
+    if(obstacle.get(i).getx()<-obstacle.get(i).getwidth()){
       obstacle.remove(i);
       i--;
     }

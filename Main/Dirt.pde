@@ -49,4 +49,8 @@ class Dirt{
   int getsize(){
     return size;
   }
+  
+  int getwidth(){
+    return widths;
+  }
 }
