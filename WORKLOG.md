@@ -22,3 +22,8 @@ Added basic layout for Dirt+Main file, write keypress for Main
 
 Dirt: add three different shapes for obstacles, display modified to randomly choose from the 3<br>
 Main: add variables/temporary values for testing. draw displays all blocks
+
+### 5/24
+
+Dirt: change constructor/different Dirt calls so Dirt size will fit with Block size.
+Main: add Dirt ArrayList for all newly called Dirt. work on making Blocks get pushed with every Dirt block
