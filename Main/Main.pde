@@ -35,7 +35,9 @@ void draw(){
     }
   }
   for (int i=0; i<removed.size(); i++) {
-    
+    Body b=removed.get(i);
+    b.display();
+    b.apply(x);
   }
   if(time%200==0){
     Dirt x = new Dirt(80,size,width,height-2*size);
@@ -43,7 +45,7 @@ void draw(){
   }
   for(int i=0; i<obstacle.size();i++){
     obstacle.get(i).display();
-    if(obstacle.get(i).getx()<0){
+    if(obstacle.get(i).getx()<-obstacle.get(i).getwidth()){
       obstacle.remove(i);
       i--;
     }
