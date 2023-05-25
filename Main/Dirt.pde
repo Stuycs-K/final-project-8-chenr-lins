@@ -1,6 +1,7 @@
 class Dirt{
   int widths,size,x,y,speed;
   int choose;
+  int type;
   
   public Dirt(int wid, int sizes, int xx,int yy){
     widths=wid;
@@ -8,7 +9,7 @@ class Dirt{
     x=xx;
     y=yy;
     speed=-1;
-    choose = (int)random(0,3);
+    type = (int)random(0,3);
   }
   
   void stairs(){
@@ -52,5 +53,9 @@ class Dirt{
   
   int getwidth(){
     return widths;
+  }
+  
+  int gettype(){
+    return type;
   }
 }
