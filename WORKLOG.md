@@ -11,6 +11,12 @@ Added basic layout for Body and Main file
 Body: add two apply methods and a touch method if Body touches Dirt<br>
 Main: tried pushing Body off when Dirt touches it; didn't work; Dirt stop moving completely
 
+### 5/24
+
+Dirt: add getwidth()
+Body: add getsize()
+Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
+
 
 ## GROUP MEMBER 2: Stephanie
 
@@ -24,6 +30,5 @@ Dirt: add three different shapes for obstacles, display modified to randomly cho
 Main: add variables/temporary values for testing. draw displays all blocks
 
 ### 5/24
-
 Dirt: change constructor/different Dirt calls so Dirt size will fit with Block size.
 Main: add Dirt ArrayList for all newly called Dirt. work on making Blocks get pushed with every Dirt block
