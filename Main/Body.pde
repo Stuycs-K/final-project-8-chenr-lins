@@ -22,7 +22,7 @@ class Body {
   int getsize(){
     return size;
   }
-  
+
   void display(){
     square(x,y,size);
   }
@@ -37,7 +37,7 @@ class Body {
     if(x>-1*size){
       x+=xspeed;
     }
-    if(y<height-size*2){
+    if(y<height-size){
       y+=yspeed;
     }
   }
@@ -52,7 +52,7 @@ class Body {
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
       xspeed=-1;
-      apply(height);
+      apply(0);
       return true;
     }
     return false;
