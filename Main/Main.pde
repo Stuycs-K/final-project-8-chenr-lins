@@ -16,7 +16,7 @@ void setup(){
   y = height-(2*size);
   birdList = new ArrayList<Body>();
   removed=new ArrayList<Body>();
-  down=new Body(x-size,y-size,0);
+  down=new Body(x-size,y-2*size,0);
   birdList.add(down);
   test = new Dirt(width,(int)random(300,500)/100*100);
   test2 = new Dirt(width,(int)random(300,500)/100*100);
@@ -42,10 +42,11 @@ void draw(){
     test = new Dirt(width,(int)random(300,500)/100*100);
     dirts = true;
   }
+  birdList.get(0).display();
   for(int i=1; i<birdList.size(); i++){
     Body b=birdList.get(i);
     b.display();
-    if (b.touch(test) || b.touch(test2)) {
+    if ((b.touch(test) || b.touch(test2)) && i>1) {
       birdList.remove(b);
       removed.add(b);
       y+=size;
