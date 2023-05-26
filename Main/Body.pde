@@ -34,10 +34,10 @@ class Body {
     else{
       yspeed=1;
     }
-    if(x>-1*size){
+    if(x> (-2*size)){
       x+=xspeed;
     }
-    if(y<height-2*size){
+    if(y<height-size){
       y+=yspeed;
     }
   }
@@ -51,7 +51,7 @@ class Body {
   
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
-      xspeed=-1;
+      xspeed=-2;
       apply(0);
       return true;
     }
