@@ -17,6 +17,10 @@ Dirt: add getwidth()
 Body: add getsize()
 Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
 
+### 5/25 
+
+Main: stack falls correctly other than the very bottom one
+Dirt and Body: comment out methods for testing purpose 
 
 ## GROUP MEMBER 2: Stephanie
 
