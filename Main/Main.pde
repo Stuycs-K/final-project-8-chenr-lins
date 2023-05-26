@@ -1,68 +1,25 @@
-int x;
+int x = 100; //<>//
 int y;
-int size;
+int size = 20;
 ArrayList<Body>birdList;
 ArrayList<Body>removed;
-int maxBird;
-int birdCount;
-ArrayList<Dirt>obstacle;
+Body down;
 Dirt test;
+Dirt test2;
+boolean dirts = true;
 int time = 0;
+int maxBird = 10;
+int birdCount = 0;
 
 void setup(){
   size(400,400);
+  y = height-(2*size);
   birdList = new ArrayList<Body>();
-  obstacle = new ArrayList<Dirt>();
   removed=new ArrayList<Body>();
-  //temp numbers
-  x = 100;
-  size = 20;
-  y = height-2*size;
-  maxBird = 10;
-  Body down=new Body(x-size,y,0);
+  down=new Body(x-size,y-size,0);
   birdList.add(down);
-  test = new Dirt(80,size,width,height/2);
-}
-
-void draw(){
-  time++;
-  background(135,206,235);
-  for(int i=1; i<birdList.size(); i++){
-    Body b=birdList.get(i);
-    b.display();
-    if (obstacle.size()!=0){
-      //if (b.touch(obstacle.get(0))) {
-      if (b.touch(test)) {
-        println("hi");
-        birdList.remove(b);
-        removed.add(b);
-        y+=size;
-        birdCount--;
-        i--;
-      }
-      b.apply(birdList.get(i-1));
-    }
-  }
-  for (int i=0; i<removed.size(); i++) {
-      Body b=removed.get(i);
-      b.display();
-      b.apply(x);
-      if(removed.get(i).getx()<-removed.get(i).getsize()){
-      removed.remove(i);
-      i--;
-    }
-  }test.display();
-  //if(time%200==0){
-  //  Dirt x = new Dirt(80,size,width,height-2*size);
-  //  obstacle.add(x);
-  //}
-  //for(int i=0; i<obstacle.size();i++){
-  //  obstacle.get(i).display();
-  //  if(obstacle.get(i).getx()<-obstacle.get(i).getwidth()){
-  //    obstacle.remove(i);
-  //    i--;
-  //  }
-  //}
+  test = new Dirt(width,(int)random(300,500)/100*100);
+  test2 = new Dirt(width,(int)random(300,500)/100*100);
 }
 
 void keyPressed(){
@@ -71,6 +28,37 @@ void keyPressed(){
     birdList.add(b);
     y-=size;
     birdCount++;
-    b.display();
   }
+}
+
+void draw(){
+  time++;
+  background(135,206,235);
+  if(test.getx()<width/2 && dirts){
+    test2 = new Dirt(width,(int)random(300,500)/100*100);
+    dirts = false;
+  }
+  if(test2.getx()<width/2 && dirts==false){
+    test = new Dirt(width,(int)random(300,500)/100*100);
+    dirts = true;
+  }
+  for(int i=1; i<birdList.size(); i++){
+    Body b=birdList.get(i);
+    b.display();
+    if (b.touch(test) || b.touch(test2)) {
+      birdList.remove(b);
+      removed.add(b);
+      y+=size;
+      birdCount--;
+      i--;
+    }
+    b.apply(birdList.get(i-1));
+  }
+  for (int i=0; i<removed.size(); i++) {
+    Body b=removed.get(i);
+    b.display();
+    b.apply(x);
+  }
+  test.display();
+  test2.display();
 }
