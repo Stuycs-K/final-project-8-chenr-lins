@@ -52,7 +52,11 @@ void draw(){
       birdCount--;
       i--;
     }
-    b.apply(birdList.get(i-1));
+    if (i!=0){
+      b.apply(birdList.get(i-1));
+    }else{
+      
+    }
   }
   for (int i=0; i<removed.size(); i++) {
     Body b=removed.get(i);
