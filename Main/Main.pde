@@ -1,4 +1,4 @@
-int x = 100;
+int x = 100; //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList;
