@@ -50,11 +50,20 @@ class Body {
   }
   
   boolean touch(Dirt sv){
-    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
-      xspeed=-1;
-      apply(0);
-      return true;
+    if (sv.getchoose()==2) {
+      if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+        xspeed=-1;
+        apply(0);
+        return true;
+      }
+    }
+    if (sv.getchoose()==1) {
+      if(){
+      }
+    }
+    if (sv.getchoose()==0) {
+      if(){
+      }
     }
     return false;
-  }
 }
