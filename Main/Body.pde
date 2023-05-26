@@ -37,7 +37,7 @@ class Body {
     if(x>-1*size){
       x+=xspeed;
     }
-    if(y<height-size){
+    if(y<height-2*size){
       y+=yspeed;
     }
   }
