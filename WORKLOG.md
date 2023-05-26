@@ -32,3 +32,8 @@ Main: add variables/temporary values for testing. draw displays all blocks
 ### 5/24
 Dirt: change constructor/different Dirt calls so Dirt size will fit with Block size.
 Main: add Dirt ArrayList for all newly called Dirt. work on making Blocks get pushed with every Dirt block
+
+### 5/25
+Dirt: comment out different Dirt constructors. make a simpler one to test Birdstack movement.
+Body: change touch method so it applies to 0 not height
+Main: remove Dirt ArrayList. add two temporary Dirt. attempt to fix bottom block's incorrect positioning
