@@ -1,16 +1,16 @@
 class Dirt{
-  int widths,size,x,y,speed;
-  int choose;
+  //widths,choose,type
+  int size,x,y,speed;
   
-  public Dirt(int wid, int sizes, int xx,int yy){
-    widths=wid;
-    size=sizes;
+  public Dirt(int xx,int yy){
+    //widths=wid;
+    size=20*(int)random(1,5);
     x=xx;
     y=yy;
-    speed=-1;
-    choose = (int)random(0,3);
+    speed=-2;
+    //type = (int)random(0,3);
   }
-  
+  /*
   void stairs(){
     rect(x,y,widths,size);
     rect(x+size,y-size,widths-size,size);
@@ -37,6 +37,12 @@ class Dirt{
     }
     x+=speed;
   }
+  */
+  
+  void display(){
+    rect(x,y,size,size);
+    x+=speed;
+  }
   
   int getx(){
     return x;
@@ -48,9 +54,5 @@ class Dirt{
   
   int getsize(){
     return size;
-  }
-  
-  int getwidth(){
-    return widths;
   }
 }

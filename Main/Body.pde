@@ -22,7 +22,7 @@ class Body {
   int getsize(){
     return size;
   }
-  
+
   void display(){
     square(x,y,size);
   }
