@@ -1,4 +1,4 @@
-int x = 100; //<>//
+int x = 100; //<>// //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList;
@@ -13,11 +13,12 @@ int birdCount = 0;
 
 void setup(){
   size(400,400);
-  y = height-(2*size);
+  y = height;
   birdList = new ArrayList<Body>();
   removed=new ArrayList<Body>();
-  down=new Body(x-size,y-size,0);
+  down=new Body(x-size,y,0);
   birdList.add(down);
+  y-=size;
   test = new Dirt(width,(int)random(300,500)/100*100);
   test2 = new Dirt(width,(int)random(300,500)/100*100);
 }
@@ -34,6 +35,7 @@ void keyPressed(){
 void draw(){
   time++;
   background(135,206,235);
+  fill(255);
   if(test.getx()<width/2 && dirts){
     test2 = new Dirt(width,(int)random(300,500)/100*100);
     dirts = false;
@@ -52,11 +54,7 @@ void draw(){
       birdCount--;
       i--;
     }
-    if (i!=0){
-      b.apply(birdList.get(i-1));
-    }else{
-      
-    }
+    b.apply(birdList.get(i-1));
   }
   for (int i=0; i<removed.size(); i++) {
     Body b=removed.get(i);
@@ -65,4 +63,6 @@ void draw(){
   }
   test.display();
   test2.display();
+  fill(0,255,0);
+  rect(0,height-size,width,size);
 }
