@@ -22,6 +22,15 @@ Main: only bottom Body moved when Dirt touches it; tried to move stack down afte
 Main: stack falls correctly other than the very bottom one
 Dirt and Body: comment out methods for testing purpose 
 
+### 5/26
+
+Added Gravity class, borrowed from lab
+
+### 5/28
+
+Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt
+Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
+
 ## GROUP MEMBER 2: Stephanie
 
 ### 5/22
