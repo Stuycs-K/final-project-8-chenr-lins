@@ -1,4 +1,4 @@
-int x = 100; //<>// //<>// //<>//
+int x = 100; //<>// //<>// //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList;
@@ -10,22 +10,26 @@ boolean dirts = true;
 int time = 0;
 int maxBird = 10;
 int birdCount = 0;
+Body earth;
 
 void setup(){
   size(400,400);
   y = height;
+  earth = new Body(0, height*500, size, 500000000);
+  earth.display();
   birdList = new ArrayList<Body>();
   removed=new ArrayList<Body>();
-  down=new Body(x-size,y,0);
+  down=new Body(x-size,y,0, 10);
   birdList.add(down);
   y-=size;
+  birdCount++;
   test = new Dirt(width,(int)random(300,500)/100*100);
   test2 = new Dirt(width,(int)random(300,500)/100*100);
 }
 
 void keyPressed(){
   if(birdCount<maxBird){
-    Body b = new Body(x,y,size);
+    Body b = new Body(x,y,size,10);
     birdList.add(b);
     y-=size;
     birdCount++;
@@ -50,19 +54,25 @@ void draw(){
     if (b.touch(test) || b.touch(test2)) {
       birdList.remove(b);
       removed.add(b);
+      b.applyForce(b.attractTo(earth));
       y+=size;
       birdCount--;
       i--;
     }
-    b.apply(birdList.get(i-1));
+    if (!(b.toptouch(test) || b.toptouch(test2)))
+      b.apply(birdList.get(i-1));
   }
   for (int i=0; i<removed.size(); i++) {
     Body b=removed.get(i);
     b.display();
     b.apply(x);
+    if (i>=1){
+      b.apply(removed.get(i-1));
+      b.setx(b.getx()+1);
+    }
   }
   test.display();
   test2.display();
   fill(0,255,0);
-  rect(0,height-size,width,size);
+  //rect(0,height-size,width,size);
 }

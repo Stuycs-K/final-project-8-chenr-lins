@@ -2,13 +2,21 @@ class Body {
   int x, y;
   double xspeed, yspeed;
   int size;
+  PVector position, velocity, acceleration;
+  float radius;
+  float mass;
+  double G = 20;
   
-  public Body(int xx, int yy, int s) {
+  public Body(int xx, int yy, int s, float mass_) {
     x=xx;
     y=yy;
     size=s;
     xspeed=0;
     yspeed=1;
+    position = new PVector(x, y);
+    velocity = new PVector((int)xspeed, (int)yspeed);
+    acceleration = new PVector(0, 0);
+    mass = mass_;
   }
   
   int getx(){
@@ -17,6 +25,10 @@ class Body {
   
   int gety(){
     return y;
+  }
+  
+  void setx(int xx){
+    x=xx;
   }
   
   int getsize(){
@@ -56,5 +68,35 @@ class Body {
       return true;
     }
     return false;
+  }
+  
+  boolean toptouch(Dirt sv){
+     return y+size-1==sv.gety() && x+size>sv.getx() && x-sv.getsize()<sv.getx();
+  }
+  
+  void move() {
+    velocity.add(acceleration);
+    position.add(velocity);
+    acceleration=new PVector(0,0);
+  }
+  
+  PVector attractTo(Body other) {
+    float distance = dist(position.x, position.y, other.position.x, other.position.y);
+    distance = max(15.0, distance);
+    float mag = (float)(G*mass*other.mass)/(distance*distance);
+    PVector force = PVector.sub(other.position, position);
+    force.normalize();
+    force.setMag(mag);
+    return force;
+  }
+  
+  void applyForce(PVector f) {
+    acceleration=f.div(mass);
+  }
+}
+
+class Bird extends Body {
+  public Bird(int xx, int yy, int s, float mass_) {
+    super(xx, yy, s, mass_);
   }
 }
