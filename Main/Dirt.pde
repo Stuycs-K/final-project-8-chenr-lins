@@ -7,7 +7,7 @@ class Dirt{ //<>//
     size=20*(int)random(1,5);
     x=xx;
     y=yy;
-    speed=-2;
+    speed=-1;
     //type = (int)random(0,3);
   }
   /*
@@ -22,7 +22,7 @@ class Dirt{ //<>//
     rect(x,y-4*size,widths,size);
   }
   void wall(){
-    rect(x,y,widths,size); //<>// //<>//
+    rect(x,y,widths,size); //<>// //<>// //<>//
   }
   
   void display(){
