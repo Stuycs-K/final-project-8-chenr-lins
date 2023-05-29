@@ -1,4 +1,4 @@
-int x = 100; //<>// //<>// //<>//
+int x = 100; //<>// //<>// //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
@@ -53,15 +53,16 @@ void draw(){
       birdCount--;
       i--;
     }
-    if (!(b.toptouch(test) || b.toptouch(test2)))
+    if (!(b.toptouch(test) || b.toptouch(test2))){
       b.apply(birdList.get(i-1));
+    }
   }
   for (int i=0; i<removed.size(); i++) {
     Body b=removed.get(i);
     b.apply(x);
     if(i==0){
       if(b.gety()<height-2*size){
-        b.sety(b.gety()+1);
+        b.sety(1);
       }
     }
     if (i>=1){
