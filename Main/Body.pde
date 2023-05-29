@@ -96,10 +96,10 @@ class Body {
     acceleration=f.div(mass);
   }
 }
+*/
 
 class Bird extends Body {
   public Bird(int xx, int yy, int s, float mass_) {
     super(xx, yy, s, mass_);
   }
-  */
 }
