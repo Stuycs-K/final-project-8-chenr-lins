@@ -72,7 +72,7 @@ class Body {
   }
   
   boolean toptouch(Dirt sv){
-     return y+size>sv.gety() && x+size>sv.getx() && x-sv.getsize()<sv.getx();
+    return y+size>sv.gety() && x-sv.getsize()<sv.getx();
   }
   
   /*

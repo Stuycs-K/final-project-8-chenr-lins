@@ -1,4 +1,4 @@
-class Dirt{ //<>// //<>// //<>//
+class Dirt{ //<>// //<>//
   //widths,choose,type
   int size,x,y,speed;
   
@@ -22,7 +22,7 @@ class Dirt{ //<>// //<>// //<>//
     rect(x,y-4*size,widths,size);
   }
   void wall(){
-    rect(x,y,widths,size); //<>// //<>// //<>//
+    rect(x,y,widths,size);
   }
   
   void display(){

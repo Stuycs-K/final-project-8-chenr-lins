@@ -3,7 +3,7 @@ int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
 ArrayList<Body>removed = new ArrayList<Body>();
-Body down = new Body(x-size,y,0,10);
+Body down;
 Dirt test = new Dirt(width,(int)random(300,500)/100*100);
 Dirt test2 = new Dirt(width,(int)random(300,500)/100*100);
 boolean dirts = true;
@@ -13,10 +13,11 @@ int birdCount = 0;
 
 void setup(){
   size(400,400);
-  y=height;
+  y=height-size;
   //earth.display();
-  birdList.add(down);
+  down = new Body(x,y,size,10);
   y-=size;
+  birdList.add(down);
   birdCount++;
 }
 
@@ -32,21 +33,22 @@ void keyPressed(){
 void draw(){
   background(135,206,235);
   fill(255);
-  if(test.getx()<width/2 && dirts){
+  if(test.getx()<test.getsize()*-1 && dirts){
     test2 = new Dirt(width,(int)random(300,500)/100*100);
     dirts = false;
   }
-  if(test2.getx()<width/2 && dirts==false){
+  if(test2.getx()<test.getsize()*-1 && dirts==false){
     test = new Dirt(width,(int)random(300,500)/100*100);
     dirts = true;
   }
+  birdList.get(0).display();
   for(int i=1; i<birdList.size(); i++){
     Body b=birdList.get(i);
     b.display();
     if (b.touch(test) || b.touch(test2)) {
       birdList.remove(b);
       removed.add(b);
-      //b.applyForce(b.attractTo(earth)); //? :D
+      //b.applyForce(b.attractTo(earth));
       y+=size;
       birdCount--;
       i--;
