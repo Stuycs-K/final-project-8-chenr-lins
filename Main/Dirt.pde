@@ -1,4 +1,4 @@
-class Dirt{ //<>//
+class Dirt{ //<>// //<>// //<>//
   //widths,choose,type
   int size,x,y,speed;
   
@@ -7,7 +7,7 @@ class Dirt{ //<>//
     size=20*(int)random(1,5);
     x=xx;
     y=yy;
-    speed=-1;
+    speed=-2;
     //type = (int)random(0,3);
   }
   /*

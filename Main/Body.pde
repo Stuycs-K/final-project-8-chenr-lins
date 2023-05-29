@@ -2,21 +2,23 @@ class Body {
   int x, y;
   double xspeed, yspeed;
   int size;
-  PVector position, velocity, acceleration;
-  float radius;
-  float mass;
-  double G = 20;
+  //PVector position, velocity, acceleration;
+  //float radius;
+  //float mass;
+  //double G = 20;
   
   public Body(int xx, int yy, int s, float mass_) {
     x=xx;
     y=yy;
     size=s;
     xspeed=0;
-    yspeed=1;
+    yspeed=2;
+    /*
     position = new PVector(x, y);
     velocity = new PVector((int)xspeed, (int)yspeed);
     acceleration = new PVector(0, 0);
     mass = mass_;
+    */
   }
   
   int getx(){
@@ -31,6 +33,9 @@ class Body {
     x=xx;
   }
   
+  void sety(int yy){
+    y=yy;
+  }
   int getsize(){
     return size;
   }
@@ -44,13 +49,10 @@ class Body {
       yspeed=0;
     }
     else{
-      yspeed=1;
+      yspeed=2;
     }
     if(x>-2*size){
       x+=xspeed;
-    }
-    if(y<height-2*size){
-      y+=yspeed;
     }
   }
   
@@ -63,17 +65,17 @@ class Body {
   
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
-      xspeed=-1;
-      apply(0);
+      xspeed=-2;
       return true;
     }
     return false;
   }
   
   boolean toptouch(Dirt sv){
-     return y+size-1==sv.gety() && x+size>sv.getx() && x-sv.getsize()<sv.getx();
+     return y+size>sv.gety() && x+size>sv.getx() && x-sv.getsize()<sv.getx();
   }
   
+  /*
   void move() {
     velocity.add(acceleration);
     position.add(velocity);
@@ -99,4 +101,5 @@ class Bird extends Body {
   public Bird(int xx, int yy, int s, float mass_) {
     super(xx, yy, s, mass_);
   }
+  */
 }
