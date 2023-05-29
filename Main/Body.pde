@@ -8,7 +8,7 @@ class Body {
     y=yy;
     size=s;
     xspeed=0;
-    yspeed=1;
+    yspeed=2;
   }
   
   int getx(){
@@ -22,22 +22,22 @@ class Body {
   int getsize(){
     return size;
   }
-
+  
+  void setyspeed(int num){
+    yspeed=num;
+  }
   void display(){
     square(x,y,size);
   }
   
-  void apply(int pos){
-    if(x+size>pos){
-      yspeed=0;
-    }
-    else{
-      yspeed=1;
-    }
+  void apply(int pos,Dirt s){
     if(x> (-2*size)){
       x+=xspeed;
     }
-    if(y<height-size){
+    if(x<100){
+      yspeed=2;
+    }
+    if(y+s.getsize()<=height){
       y+=yspeed;
     }
   }
@@ -52,7 +52,7 @@ class Body {
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
       xspeed=-2;
-      apply(0);
+      apply(0,sv);
       return true;
     }
     return false;
