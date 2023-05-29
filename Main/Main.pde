@@ -1,4 +1,4 @@
-int x = 100; //<>//
+int x = 100; //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
@@ -13,8 +13,12 @@ int birdCount = 0;
 
 void setup(){
   size(400,400);
-  y=height;
+  y = height-size;
+  //earth = new Body(0, height*500, size, 500000000);
   //earth.display();
+  birdList = new ArrayList<Body>();
+  removed=new ArrayList<Body>();
+  down=new Body(x-size,y,0, 10);
   birdList.add(down);
   y-=size;
   birdCount++;
