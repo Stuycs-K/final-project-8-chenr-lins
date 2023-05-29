@@ -17,10 +17,10 @@ Dirt: add getwidth()<br>
 Body: add getsize()<br>
 Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
 
-### 5/25 
+### 5/25
 
 Main: stack falls correctly other than the very bottom one<br>
-Dirt and Body: comment out methods for testing purpose 
+Dirt and Body: comment out methods for testing purpose
 
 ### 5/26
 
@@ -50,3 +50,7 @@ Main: add Dirt ArrayList for all newly called Dirt. work on making Blocks get pu
 Dirt: comment out different Dirt constructors. make a simpler one to test Birdstack movement.<br>
 Body: change touch method so it applies to 0 not height<br>
 Main: remove Dirt ArrayList. add two temporary Dirt. attempt to fix bottom block's incorrect positioning
+
+### 5/26
+Body: modify parts of apply speed so no Blocks collapsing (falling into each other)
+Main: add a ground. tried to make Body fall only if Dirt passed. had issues, pulled Regina's. fixed removed Blocks collapsing, instead will stack as main Body does.
