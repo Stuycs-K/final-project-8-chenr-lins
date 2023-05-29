@@ -14,7 +14,7 @@ Body earth;
 
 void setup(){
   size(400,400);
-  y = height;
+  y = height-size;
   earth = new Body(0, height*500, size, 500000000);
   earth.display();
   birdList = new ArrayList<Body>();
@@ -74,5 +74,5 @@ void draw(){
   test.display();
   test2.display();
   fill(0,255,0);
-  //rect(0,height-size,width,size);
+  rect(0,height-size,width,size);
 }
