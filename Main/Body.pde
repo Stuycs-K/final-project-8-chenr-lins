@@ -7,7 +7,7 @@ class Body {
   //float mass;
   //double G = 20;
   
-  public Body(int xx, int yy, int s, float mass_) {
+  public Body(int xx, int yy, int s) {
     x=xx;
     y=yy;
     size=s;
@@ -34,7 +34,7 @@ class Body {
   }
   
   void sety(int yy){
-    y=yy;
+    y+=yy;
   }
   int getsize(){
     return size;
@@ -95,11 +95,22 @@ class Body {
   void applyForce(PVector f) {
     acceleration=f.div(mass);
   }
-}
-
-class Bird extends Body {
-  public Bird(int xx, int yy, int s, float mass_) {
-    super(xx, yy, s, mass_);
-  }
   */
+}
+*/
+}
+class Bird extends Body {
+<<<<<<< HEAD
+  public Bird(int xx, int yy, int s) {
+    super(xx, yy, s);
+  }
+  
+  void display(){
+    fill(0);
+    square(x,y,size);
+=======
+  public Bird(int xx, int yy, int s, float mass_){
+    super(xx, yy, s, mass_);
+>>>>>>> 527095e8778da8bfaaace046c895b17a63b1fc86
+  }
 }
