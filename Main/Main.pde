@@ -1,4 +1,4 @@
-int x = 100; //<>// //<>// //<>// //<>//
+int x = 100; //<>// //<>// //<>// //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
@@ -30,7 +30,7 @@ void keyPressed(){
     birdList.add(b);
     y-=size;
     birdCount++;
-    head.sety(head.gety()-size);
+    head.sety(-size);
   }
 }
 
@@ -44,7 +44,12 @@ void draw(){
     test = new Dirt(width,(int)random(300,500)/100*100);
     dirts = true;
   }
-  head.display();
+  if(head.touch(test)||head.touch(test2)){
+    head.display2();
+  }
+  else{
+    head.display1();
+  }
   fill(255);
   birdList.get(0).display();
   for(int i=1; i<birdList.size(); i++){
