@@ -34,7 +34,7 @@ class Body {
   }
   
   void sety(int yy){
-    y=yy;
+    y+=yy;
   }
   int getsize(){
     return size;
@@ -97,8 +97,10 @@ class Body {
   }
   */
 }
-
+*/
+}
 class Bird extends Body {
+<<<<<<< HEAD
   public Bird(int xx, int yy, int s) {
     super(xx, yy, s);
   }
@@ -106,5 +108,9 @@ class Bird extends Body {
   void display(){
     fill(0);
     square(x,y,size);
+=======
+  public Bird(int xx, int yy, int s, float mass_){
+    super(xx, yy, s, mass_);
+>>>>>>> 527095e8778da8bfaaace046c895b17a63b1fc86
   }
 }
