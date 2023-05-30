@@ -7,7 +7,7 @@ class Body {
   //float mass;
   //double G = 20;
   
-  public Body(int xx, int yy, int s, float mass_) {
+  public Body(int xx, int yy, int s) {
     x=xx;
     y=yy;
     size=s;
@@ -95,11 +95,16 @@ class Body {
   void applyForce(PVector f) {
     acceleration=f.div(mass);
   }
+  */
 }
 
 class Bird extends Body {
-  public Bird(int xx, int yy, int s, float mass_) {
-    super(xx, yy, s, mass_);
+  public Bird(int xx, int yy, int s) {
+    super(xx, yy, s);
   }
-  */
+  
+  void display(){
+    fill(0);
+    square(x,y,size);
+  }
 }
