@@ -7,7 +7,7 @@ class Body {
   //float mass;
   //double G = 20;
   
-  public Body(int xx, int yy, int s, float mass_) {
+  public Body(int xx, int yy, int s) {
     x=xx;
     y=yy;
     size=s;
@@ -34,7 +34,7 @@ class Body {
   }
   
   void sety(int yy){
-    y=yy;
+    y+=yy;
   }
   int getsize(){
     return size;
@@ -72,7 +72,7 @@ class Body {
   }
   
   boolean toptouch(Dirt sv){
-     return y+size>sv.gety() && x+size>sv.getx() && x-sv.getsize()<sv.getx();
+    return y+size>sv.gety() && x-sv.getsize()<sv.getx();
   }
   
   /*
@@ -97,9 +97,10 @@ class Body {
   }
 }
 */
-
+}
 class Bird extends Body {
-  public Bird(int xx, int yy, int s, float mass_) {
-    super(xx, yy, s, mass_);
+  public Bird(int xx, int yy, int s){
+    super(xx, yy, s);
   }
+  
 }
