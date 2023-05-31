@@ -101,7 +101,7 @@ class Bird extends Body {
   public Bird(int xx, int yy, int s) {
     super(xx, yy, s);
   }
-  
+
   void display1(){
     fill(0);
     square(x,y,size);
