@@ -7,7 +7,7 @@ class Dirt{ //<>// //<>// //<>//
     size=20*(int)random(1,5);
     x=xx;
     y=yy;
-    speed=-2;
+    speed=-4;
     //type = (int)random(0,3);
   }
   /*

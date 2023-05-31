@@ -12,7 +12,7 @@ class Body {
     y=yy;
     size=s;
     xspeed=0;
-    yspeed=2;
+    yspeed=4;
     /*
     position = new PVector(x, y);
     velocity = new PVector((int)xspeed, (int)yspeed);
@@ -65,7 +65,7 @@ class Body {
   
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
-      xspeed=-2;
+      xspeed=-4;
       return true;
     }
     return false;
