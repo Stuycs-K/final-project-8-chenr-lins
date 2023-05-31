@@ -95,12 +95,28 @@ class Body {
   void applyForce(PVector f) {
     acceleration=f.div(mass);
   }
-}
-*/
+  */
 }
 class Bird extends Body {
-  public Bird(int xx, int yy, int s){
+  public Bird(int xx, int yy, int s) {
     super(xx, yy, s);
   }
   
+  void display1(){
+    fill(0);
+    square(x,y,size);
+  }
+  
+  void display2(){
+    fill(255,0,0);
+    square(x,y,size);
+  }
+  
+  boolean touch (Dirt sv){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+      display2();
+      return true;
+    }
+    return false;
+  }
 }
