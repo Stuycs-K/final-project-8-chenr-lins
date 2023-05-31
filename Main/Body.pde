@@ -97,20 +97,26 @@ class Body {
   }
   */
 }
-*/
-}
 class Bird extends Body {
-<<<<<<< HEAD
   public Bird(int xx, int yy, int s) {
     super(xx, yy, s);
   }
-  
-  void display(){
+
+  void display1(){
     fill(0);
     square(x,y,size);
-=======
-  public Bird(int xx, int yy, int s, float mass_){
-    super(xx, yy, s, mass_);
->>>>>>> 527095e8778da8bfaaace046c895b17a63b1fc86
+  }
+  
+  void display2(){
+    fill(255,0,0);
+    square(x,y,size);
+  }
+  
+  boolean touch (Dirt sv){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+      display2();
+      return true;
+    }
+    return false;
   }
 }

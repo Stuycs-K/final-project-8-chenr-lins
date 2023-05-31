@@ -1,4 +1,4 @@
-class Dirt{ //<>// //<>//
+class Dirt{ //<>// //<>// //<>//
   //widths,choose,type
   int size,x,y,speed;
   
