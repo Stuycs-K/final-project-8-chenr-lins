@@ -58,3 +58,6 @@ Main: remove Dirt ArrayList. add two temporary Dirt. attempt to fix bottom block
 ### 5/26
 Body: modify parts of apply speed so no Blocks collapsing (falling into each other)
 Main: add a ground. tried to make Body fall only if Dirt passed. had issues, pulled Regina's. fixed removed Blocks collapsing, instead will stack as main Body does.
+
+### 5/30
+Started on bird Head. Write constructor, display, changes in display after keypress.
