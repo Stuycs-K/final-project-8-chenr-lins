@@ -4,8 +4,8 @@ int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
 ArrayList<Body>removed = new ArrayList<Body>();
 Body down;
-Dirt test = new Dirt(width,(int)random(300,500)/100*100);
-Dirt test2 = new Dirt(width,(int)random(300,500)/100*100);
+Dirt test;
+Dirt test2;
 boolean dirts = true;
 int maxBird = 10;
 int birdCount = 0;
@@ -14,6 +14,7 @@ Bird head;
 int mode=0;
 
 void setup(){
+  noStroke();
   size(400,400);
   background(135,206,235);
   y=height-size;
@@ -34,6 +35,8 @@ void setup(){
 void keyPressed(){
   if (mode==0) {
     mode=1;
+    test = new Dirt(width,(int)random(300,500)/100*100);
+    test2 = new Dirt(width,(int)random(300,500)/100*100);
   }
   if (mode==1) {
     if(birdCount<maxBird){
@@ -56,7 +59,7 @@ void draw(){
       test2 = new Dirt(width,(int)random(300,500)/100*100);
       dirts = false;
     }
-    if(test2.getx()<test.getsize()*-1 && dirts==false){
+    else if(test2.getx()<test.getsize()*-1 && dirts==false){
       test = new Dirt(width,(int)random(300,500)/100*100);
       dirts = true;
     }
@@ -85,6 +88,8 @@ void draw(){
       }
       if (!(b.toptouch(test) || b.toptouch(test2))){
         b.apply(birdList.get(i-1));
+      }
+      if (!(head.toptouch(test) || head.toptouch(test2))){
         head.apply(birdList.get(birdList.size()-1));
       }
     }
@@ -98,7 +103,7 @@ void draw(){
       }
       if (i>=1){
         b.apply(removed.get(i-1));
-        b.setx(b.getx()+2);
+        b.setx(b.getx()+4);
       }
       b.display();
       if(b.getx()+size<-1){

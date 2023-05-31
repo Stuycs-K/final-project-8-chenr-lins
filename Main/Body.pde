@@ -56,6 +56,10 @@ class Body {
     }
   }
   
+  void setyspeed(int s){
+    yspeed=s;
+  }
+  
   void apply(Body other){
     x+=xspeed;
     if(y<other.y-size){
@@ -65,7 +69,7 @@ class Body {
   
   boolean touch(Dirt sv){
     if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
-      xspeed=-2;
+      xspeed=-4;
       return true;
     }
     return false;
@@ -101,14 +105,13 @@ class Bird extends Body {
   public Bird(int xx, int yy, int s) {
     super(xx, yy, s);
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 17b0d173a081deedf7ab1dbabe961a7fab1fb30d
   void display1(){
-    fill(0);
     square(x,y,size);
+    fill(0);
+    circle(x+3*size/4,y+size/2,size/4);
+    fill(255,165,0);
+    triangle(x+size,y+size/5,x+size,y+size-size/5,x+size+size/2,y+size/2);
   }
   
   void display2(){

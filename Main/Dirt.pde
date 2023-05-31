@@ -1,4 +1,4 @@
-class Dirt{ //<>// //<>// //<>//
+class Dirt{ //<>// //<>// //<>// //<>//
   //widths,choose,type
   int size,x,y,speed;
   
@@ -7,7 +7,7 @@ class Dirt{ //<>// //<>// //<>//
     size=20*(int)random(1,5);
     x=xx;
     y=yy;
-    speed=-2;
+    speed=-4;
     //type = (int)random(0,3);
   }
   /*
@@ -40,6 +40,7 @@ class Dirt{ //<>// //<>// //<>//
   */
   
   void display(){
+    fill(150,75,0);
     square(x,y,size);
     x+=speed;
   }
