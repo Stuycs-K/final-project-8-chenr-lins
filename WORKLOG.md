@@ -31,6 +31,10 @@ Added Gravity class, borrowed from lab
 Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt<br>
 Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
 
+### 5/30
+
+Main: Started adding a start screen before actual gameplay and still working on end screen; stops running if Bird head touches Dirt; fix problem of Body getting stuck in mid-air after keypress
+
 ## GROUP MEMBER 2: Stephanie
 
 ### 5/22
