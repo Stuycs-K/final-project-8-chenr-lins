@@ -14,6 +14,7 @@ Bird head;
 int mode=0;
 
 void setup(){
+  noStroke();
   size(400,400);
   background(135,206,235);
   y=height;
