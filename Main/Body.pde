@@ -41,7 +41,7 @@ class Body {
   }
 
   void display(){
-    square(x,y,size);
+    rect(x,y,size,size,5);
   }
   
   void apply(int pos){
@@ -103,13 +103,16 @@ class Bird extends Body {
   }
 
   void display1(){
+    rect(x,y,size,size,5);
     fill(0);
-    square(x,y,size);
+    circle(x+3*size/4,y+size/2,size/4);
+    fill(255,165,0);
+    triangle(x+size,y+size/5,x+size,y+size-size/5,x+size+size/2,y+size/2);
   }
   
   void display2(){
     fill(255,0,0);
-    square(x,y,size);
+    rect(x,y,size,size,5);
   }
   
   boolean touch (Dirt sv){
