@@ -17,13 +17,12 @@ void setup(){
   noStroke();
   size(400,400);
   background(135,206,235);
-  y=height-size;
+  y=height;
   //earth.display();
   down = new Body(x,y,size);
   y-=size;
   birdList.add(down);
   head = new Bird(x,y,size);
-  head.display();
   y-=size;
   //birdCount++;
   fill(0,255,0);
@@ -34,6 +33,8 @@ void setup(){
 
 void keyPressed(){
   if (mode==0) {
+    test = new Dirt(width,(int)random(300,500)/100*100);
+    test2 = new Dirt(width,(int)random(300,500)/100*100);
     mode=1;
     test = new Dirt(width,(int)random(300,500)/100*100);
     test2 = new Dirt(width,(int)random(300,500)/100*100);
@@ -53,6 +54,7 @@ void draw(){
   background(135,206,235);
   fill(255);
   if (mode==0) {
+    head.display1();
   }
   if (mode==1) {
     if(test.getx()<test.getsize()*-1 && dirts){

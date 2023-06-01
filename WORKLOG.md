@@ -35,6 +35,10 @@ Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after th
 
 Main: Started adding a start screen before actual gameplay and still working on end screen; stops running if Bird head touches Dirt; fix problem of Body getting stuck in mid-air after keypress
 
+### 5/31
+
+Main: change so that head falls after Dirt passes; change shape of Bird and Body
+
 ## GROUP MEMBER 2: Stephanie
 
 ### 5/22

@@ -12,7 +12,7 @@ class Body {
     y=yy;
     size=s;
     xspeed=0;
-    yspeed=2;
+    yspeed=4;
     /*
     position = new PVector(x, y);
     velocity = new PVector((int)xspeed, (int)yspeed);
@@ -41,7 +41,7 @@ class Body {
   }
 
   void display(){
-    square(x,y,size);
+    rect(x,y,size,size,5);
   }
   
   void apply(int pos){
@@ -54,10 +54,6 @@ class Body {
     if(x>-2*size){
       x+=xspeed;
     }
-  }
-  
-  void setyspeed(int s){
-    yspeed=s;
   }
   
   void apply(Body other){
@@ -107,7 +103,7 @@ class Bird extends Body {
   }
 
   void display1(){
-    square(x,y,size);
+    rect(x,y,size,size,5);
     fill(0);
     circle(x+3*size/4,y+size/2,size/4);
     fill(255,165,0);
@@ -116,7 +112,7 @@ class Bird extends Body {
   
   void display2(){
     fill(255,0,0);
-    square(x,y,size);
+    rect(x,y,size,size,5);
   }
   
   boolean touch (Dirt sv){
