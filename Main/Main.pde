@@ -1,4 +1,4 @@
-int x = 100; //<>//
+int x = 100; //<>// //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
@@ -12,6 +12,7 @@ int birdCount = 0;
 Bird head;
 //Body earth = new Body(0, height*500, size, 500000000);
 int mode=0;
+Bird tempBird;
 
 void setup(){
   noStroke();
@@ -23,12 +24,11 @@ void setup(){
   y-=size;
   birdList.add(down);
   head = new Bird(x,y,size);
+  tempBird=new Bird(x,y-size,size);
   y-=size;
   //birdCount++;
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
-  fill(0);
-  text("Press Key To Start", 180, 200);
 }
 
 void keyPressed(){
@@ -46,13 +46,17 @@ void keyPressed(){
       head.sety(-size);
     }
   }
+  if (mode==2) mode=0;
 }
 
 void draw(){
   background(135,206,235);
   fill(255);
   if (mode==0) {
-    head.display1();
+    tempBird.display1();
+    fill(0);
+    textSize(30);
+    text("Press Key To Start", 85, 200);
   }
   if (mode==1) {
     if(test.getx()<test.getsize()*-1 && dirts){
@@ -71,6 +75,9 @@ void draw(){
       head.display1();
     }
     if (mode==2) {
+      fill(0);
+      textSize(30);
+      text("You Lose!", 140, 200);
       noLoop();
     }
     fill(255);
