@@ -1,4 +1,4 @@
-class Dirt{ //<>// //<>//
+class Dirt{ //<>//
   int size,x,y,speed;
   
   public Dirt(int xx,int yy){
@@ -22,7 +22,6 @@ class Dirt{ //<>// //<>//
   
   void display(){
     fill(150,75,0);
-    //square(x,y,size);
     rect(x,y,size,size,10);
     x+=speed;
   }
