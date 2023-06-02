@@ -1,40 +1,37 @@
-int x = 100; //<>// //<>// //<>// //<>//
+int x = 100; //<>//
 int y;
-int size = 20;
+int size = 60;
 ArrayList<Body>birdList = new ArrayList<Body>();
 ArrayList<Body>removed = new ArrayList<Body>();
 Body down;
-Dirt test;
-Dirt test2;
+Dirt test, test2;
 boolean dirts = true;
 int maxBird = 10;
 int birdCount = 0;
-Bird head;
-//Body earth = new Body(0, height*500, size, 500000000);
+Bird head, tempBird;
 int mode=0;
-Bird tempBird;
+int score = 0;
 
 void setup(){
   noStroke();
-  size(400,400);
+  size(800,700);
   background(135,206,235);
   y=height;
-  //earth.display();
   down = new Body(x,y,size);
   y-=size;
   birdList.add(down);
   head = new Bird(x,y,size);
-  tempBird=new Bird(x,y-size,size);
   y-=size;
-  //birdCount++;
+  tempBird=new Bird(x,y,size);
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
+  fill(0);
 }
 
 void keyPressed(){
   if (mode==0) {
-    test = new Dirt(width,(int)random(300,500)/100*100);
-    test2 = new Dirt(width,(int)random(300,500)/100*100);
+    test = new Dirt(width,height-2*(((int)random(2,3))*size));
+    test2 = new Dirt(width,height-2*(((int)random(2,3))*size));
     mode=1;
   }
   if (mode==1) {
@@ -46,25 +43,34 @@ void keyPressed(){
       head.sety(-size);
     }
   }
-  if (mode==2) mode=0;
 }
 
 void draw(){
   background(135,206,235);
+  /*
+  int testheight=height;
+  for(int i=0;i<12;i++){
+    stroke(0);
+    fill(135,206,235);
+    square(100,testheight,size);
+    testheight-=size;
+  }
+  noStroke();
+  */
   fill(255);
   if (mode==0) {
+    textSize(100);
     tempBird.display1();
+    text("Press Key To Start", 0+10, height/2);
     fill(0);
-    textSize(30);
-    text("Press Key To Start", 85, 200);
   }
   if (mode==1) {
     if(test.getx()<test.getsize()*-1 && dirts){
-      test2 = new Dirt(width,(int)random(300,500)/100*100);
+      test2 = new Dirt(width,height-2*(((int)random(2,3))*size));
       dirts = false;
     }
-    if(test2.getx()<test.getsize()*-1 && dirts==false){
-      test = new Dirt(width,(int)random(300,500)/100*100);
+    else if(test2.getx()<test.getsize()*-1 && dirts==false){
+      test = new Dirt(width,height-2*(((int)random(2,3))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
@@ -75,50 +81,49 @@ void draw(){
       head.display1();
     }
     if (mode==2) {
-      fill(0);
-      textSize(30);
-      text("You Lose!", 140, 200);
+      textSize(60);
+      text("You Lose!", 300, height/4);
       noLoop();
     }
     fill(255);
-    //birdList.get(0).display();
+    textSize(30);
+    text("Blocks Evaded " + score, width-250,50);
     for(int i=1; i<birdList.size(); i++){
       Body b=birdList.get(i);
       b.display();
       if (b.touch(test) || b.touch(test2)) {
+        score++;
         birdList.remove(b);
         removed.add(b);
-        //b.applyForce(b.attractTo(earth));
         y+=size;
         birdCount--;
         i--;
       }
-      if (!(b.toptouch(test) || b.toptouch(test2))){
+      else{
+        if (!(b.toptouch(test) || b.toptouch(test2))){
         b.apply(birdList.get(i-1));
+        }
       }
       if (!(head.toptouch(test) || head.toptouch(test2))){
         head.apply(birdList.get(birdList.size()-1));
       }
     }
-    if (mode!=2){
-      for (int i=0; i<removed.size(); i++) {
-        Body b=removed.get(i);
-        b.apply(x);
-        if(i==0){
-          if(b.gety()<height-2*size){
-            b.sety(1);
-          }
-        }
-        if (i>=1){
-          b.apply(removed.get(i-1));
-        b.setx(b.getx()+4);
-        }
-        b.display();
-        if(b.getx()+size<-1){
-          removed.remove(b);
+    for (int i=0; i<removed.size(); i++) {
+      Body b=removed.get(i);
+      if(i==0){
+        b.apply();
+        if(b.gety()<height-2*size){
+          b.sety(5);
         }
       }
-    }  
+      if (i>=1){
+        b.apply(removed.get(i-1));
+      }
+      b.display();
+      if(b.getx()+size<-1){
+        removed.remove(b);
+      }
+    }
     test.display();
     test2.display();
   }

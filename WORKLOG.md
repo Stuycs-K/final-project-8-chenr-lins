@@ -39,6 +39,9 @@ Main: Started adding a start screen before actual gameplay and still working on 
 
 Main: change so that head falls after Dirt passes; change shape of Bird and Body
 
+### 6/1
+Add modes for start, during, end game.
+
 ## GROUP MEMBER 2: Stephanie
 
 ### 5/22
@@ -65,3 +68,6 @@ Main: add a ground. tried to make Body fall only if Dirt passed. had issues, pul
 
 ### 5/30
 Started on bird Head. Write constructor, display, changes in display after keypress.
+
+### 5/31
+Make bird face, add colors. Double size of display, Dirt, Bird, Block. Increase speeds, Fix problem where blocks did not fall even if nothing else under them. Add score, counts Dirts passed. cut down on both apply()s because most of that code ended up in toptouch/main.
