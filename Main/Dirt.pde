@@ -22,11 +22,8 @@ class Dirt{ //<>//
   
   void display(){
     fill(150,75,0);
-<<<<<<< HEAD
     square(x,y,size);
-=======
     rect(x,y,size,size,5);
->>>>>>> Stephanie
     x+=speed;
   }
   
