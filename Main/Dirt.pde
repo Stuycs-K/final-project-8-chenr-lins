@@ -1,13 +1,13 @@
-class Dirt{ //<>// //<>// //<>// //<>//
+class Dirt{ //<>//
   //widths,choose,type
   int size,x,y,speed;
   
   public Dirt(int xx,int yy){
     //widths=wid;
-    size=20*(int)random(1,5);
+    size=60*(int)random(1,4);
     x=xx;
     y=yy;
-    speed=-4;
+    speed=-5;
     //type = (int)random(0,3);
   }
   /*
