@@ -40,7 +40,8 @@ class Dirt{ //<>// //<>// //<>//
   */
   
   void display(){
-    square(x,y,size);
+    fill(150,75,0);
+    rect(x,y,size,size,5);
     x+=speed;
   }
   
