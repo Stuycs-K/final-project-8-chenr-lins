@@ -2,7 +2,7 @@
 
 ## Group Info
 
-Group Name: SquaRes
+Group Name: SquaRes<br>
 Members: Regina Chen, Stephanie Lin
 
 ## Overview
