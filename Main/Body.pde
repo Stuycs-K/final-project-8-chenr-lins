@@ -49,7 +49,7 @@ class Bird extends Body {
   }
 
   void display1(){
-    rect(x,y,size,size,5);
+    rect(x,y,size,size,10);
     fill(0);
     circle(x+3*size/4,y+size/2,size/4);
     fill(255,165,0);
@@ -57,7 +57,7 @@ class Bird extends Body {
   }
   
   void display2(){
-    rect(x,y,size,size,5);
+    rect(x,y,size,size,10);
     stroke(0);
     circle(x+3*size/4,y+size/2,size/4);
     noStroke();
