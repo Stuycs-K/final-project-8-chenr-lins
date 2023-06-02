@@ -1,4 +1,4 @@
-int x = 100; //<>// //<>// //<>//
+int x = 100; //<>//
 int y;
 int size = 20;
 ArrayList<Body>birdList = new ArrayList<Body>();
@@ -46,7 +46,6 @@ void keyPressed(){
       head.sety(-size);
     }
   }
-  if (mode==2) mode=0;
 }
 
 void draw(){
