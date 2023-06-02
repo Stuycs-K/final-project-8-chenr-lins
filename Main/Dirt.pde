@@ -41,7 +41,7 @@ class Dirt{ //<>//
   
   void display(){
     fill(150,75,0);
-    square(x,y,size);
+    rect(x,y,size,size,5);
     x+=speed;
   }
   
