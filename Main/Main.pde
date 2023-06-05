@@ -3,6 +3,7 @@ int y;
 int size = 60;
 ArrayList<Body>birdList = new ArrayList<Body>();
 ArrayList<Body>removed = new ArrayList<Body>();
+ArrayList<Dirt>dirtList = new ArrayList<Dirt>();
 Body down;
 Dirt test, test2;
 boolean dirts = true;
@@ -37,6 +38,8 @@ void keyPressed(){
     test = new Dirt(width,height-2*(((int)random(2,3))*size));
     test2 = new Dirt(width,height-2*(((int)random(2,3))*size));
     mode=1;
+    Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size));
+    dirtList.add(dirt);
   }
   if (mode==1) {
     if(birdCount<maxBird){
@@ -132,6 +135,16 @@ void draw(){
         if(b.getx()+size<-1){
           removed.remove(b);
         }
+      }
+    }
+    for(int i=0; i<dirtList.size();i++){
+      Dirt d = dirtList.get(i);
+      d.display();
+      if(d.getx()+d.getsize()<-1){
+        dirtList.remove(i);
+        i--;
+        Dirt newdirt = new Dirt(width,height-2*(((int)random(2,3))*size));
+        dirtList.add(newdirt);
       }
     }
     test.display();
