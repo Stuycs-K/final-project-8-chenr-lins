@@ -40,7 +40,12 @@ Main: Started adding a start screen before actual gameplay and still working on 
 Main: change so that head falls after Dirt passes; change shape of Bird and Body
 
 ### 6/1
+
 Add modes for start, during, end game. Change shape of Body and Dirt; change so that last draw doesn't duplicate Body
+
+### 6/4
+
+working on restarting game with keypress after game ends; moved somethings in setup into a method so that it can be recalled ater restarting game
 
 ## GROUP MEMBER 2: Stephanie
 
