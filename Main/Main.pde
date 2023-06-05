@@ -12,9 +12,7 @@ Bird head, tempBird;
 int mode=0;
 int score = 0;
 
-void setup(){
-  noStroke();
-  size(800,700);
+void restart() {
   background(135,206,235);
   y=height;
   down = new Body(x,y,size);
@@ -26,6 +24,12 @@ void setup(){
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
   fill(0);
+}
+
+void setup(){
+  noStroke();
+  size(800,700);
+  restart();
 }
 
 void keyPressed(){
@@ -42,6 +46,10 @@ void keyPressed(){
       birdCount++;
       head.sety(-size);
     }
+  }
+  if (mode==2) {
+    mode=0;
+    restart();
   }
 }
 
