@@ -101,27 +101,27 @@ void draw(){
     fill(255);
     textSize(30);
     text("Blocks Evaded " + score, width-250,50);
-    for(int i=1; i<birdList.size(); i++){
-      Body b=birdList.get(i);
-      b.display();
-      if (b.touch(test) || b.touch(test2)) {
-        score++;
-        birdList.remove(b);
-        removed.add(b);
-        y+=size;
-        birdCount--;
-        i--;
-      }
-      else{
-        if (!(b.toptouch(test) || b.toptouch(test2))){
-        b.apply(birdList.get(i-1));
+    if (!mode2){
+      for(int i=1; i<birdList.size(); i++){
+        Body b=birdList.get(i);
+        b.display();
+        if (b.touch(test) || b.touch(test2)) {
+          score++;
+          birdList.remove(b);
+          removed.add(b);
+          y+=size;
+          birdCount--;
+          i--;
+        }
+        else{
+          if (!(b.toptouch(test) || b.toptouch(test2))){
+          b.apply(birdList.get(i-1));
+          }
+        }
+        if (!(head.toptouch(test) || head.toptouch(test2))){
+          head.apply(birdList.get(birdList.size()-1));
         }
       }
-      if (!(head.toptouch(test) || head.toptouch(test2))){
-        head.apply(birdList.get(birdList.size()-1));
-      }
-    }
-    if (!mode2){
       for (int i=0; i<removed.size(); i++) {
         Body b=removed.get(i);
         if(i==0){
@@ -138,15 +138,18 @@ void draw(){
           removed.remove(b);
         }
       }
-    }
-    test.display();
-    test2.display();
-    if (mode2) {
+    }else {
+      for(int i=1; i<birdList.size(); i++){
+        Body b=birdList.get(i);
+        b.display();
+      }
       textSize(60);
       text("You Lose!", 300, height/4);
       test.setspeed();
       test2.setspeed();
     }
+    test.display();
+    test2.display();
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
