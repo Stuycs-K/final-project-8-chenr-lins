@@ -1,11 +1,12 @@
 class Dirt{ //<>//
-  int size,x,y,speed;
+  int widt,size,x,y,speed;
   
-  public Dirt(int xx,int yy){
+  public Dirt(int xx,int yy, int widths){
     size=60*(int)random(1,4);
     x=xx;
     y=yy;
     speed=-10;
+    widt = widths;
   }
   /*
   void stairs(){
@@ -22,7 +23,7 @@ class Dirt{ //<>//
   
   void display(){
     fill(150,75,0);
-    rect(x,y,size,size,10);
+    rect(x,y,widt,size,10);
     x+=speed;
   }
   

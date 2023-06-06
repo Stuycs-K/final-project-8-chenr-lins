@@ -54,6 +54,7 @@ class Bird extends Body {
     circle(x+3*size/4,y+size/2,size/4);
     fill(255,165,0);
     triangle(x+size,y+size/5,x+size,y+size-size/5,x+size+size/2,y+size/2);
+    fill(255);
   }
   
   void display2(){

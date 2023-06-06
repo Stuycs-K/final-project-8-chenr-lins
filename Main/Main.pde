@@ -39,7 +39,7 @@ void setup(){
 void keyPressed(){
   if (mode==0) {
     mode=1;
-    Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size));
+    Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size),size);
     dirtList.add(dirt);
   }
   if (mode==1) {
@@ -58,25 +58,25 @@ void keyPressed(){
   }
 }
 
-void makeDirt(ArrayList<Dirt>list){
+boolean makeDirt(ArrayList<Dirt>list){
   if (num==0){
-    Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size));
-    list.add(dirt);
+    //square
+    Dirt dirts = new Dirt(width,height-2*(((int)random(2,3))*size),size);
+    list.add(dirts);
     num=1;
+    return true;
   }
   if (num==1){
     //stairs
-    /*
     int ypos = height-2*(((int)random(2,3))*size);
-    Dirt nDirt = new Dirt(width,ypos);
+    Dirt nDirt = new Dirt(width,ypos,2*size);
     dirtList.add(nDirt);
-    nDirt = new Dirt(width-size,ypos-size);
+    nDirt = new Dirt(width+size,ypos-size,1*size);
     dirtList.add(nDirt);
-    nDirt = new Dirt(width-2*size,ypos-2*size);
-    dirtList.add(nDirt);
-    */
     num=0;
+    return true;
   }
+  return true;
 }
 
 void draw(){
@@ -99,7 +99,7 @@ void draw(){
     fill(0);
   }
   if (mode==1) {
-    //for(int i=0; i<dirtList.size();i++){
+    for(int i=0; i<dirtList.size();i++){
       if(head.touch(dirtList.get(0))){
         head.display2();
         mode2=true;
@@ -107,7 +107,7 @@ void draw(){
       else{
       head.display1();
     }
-    //}
+    }
     fill(255);
     textSize(30);
     text("Blocks Evaded " + score, width-250,50);
@@ -165,8 +165,8 @@ void draw(){
       d.display();
       if(d.getx()+d.getsize()<-1){
         dirtList.remove(i);
-        i--;
         makeDirt(dirtList);
+        i--;
       }
     }
   }
