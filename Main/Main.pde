@@ -11,7 +11,9 @@ int birdCount;
 Bird head, tempBird;
 int mode;
 int score;
+int maxscore=0;
 boolean mode2;
+boolean first=true;
 
 void restart() {
   background(135,206,235);
@@ -59,6 +61,7 @@ void keyPressed(){
   if (mode2==true) {
     mode2=false;
     mode=0;
+    if (score>maxscore) maxscore=score;
     restart();
   }
 }
@@ -94,13 +97,16 @@ void draw(){
     if(head.touch(test)||head.touch(test2)){
       head.display2();
       mode2=true;
+      first=false;
     }
     else{
       head.display1();
     }
     fill(255);
     textSize(30);
-    text("Blocks Evaded " + score, width-250,50);
+    if (first) text("Highest Score: -", width-265, 40);
+    else text("Highest Score: " + maxscore, width-265, 40);
+    text("Score: " + score, width-265,70);
     if (!mode2){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
