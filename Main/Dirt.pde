@@ -29,5 +29,6 @@ class Dirt{ //<>//
   int getx(){ return x; }
   int gety(){ return y; }
   int getsize(){ return size; }
+  void setspeed(){ speed=0; }
   
 }
