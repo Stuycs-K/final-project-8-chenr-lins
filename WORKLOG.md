@@ -79,3 +79,6 @@ Make bird face, add colors. Double size of display, Dirt, Bird, Block. Increase 
 
 ### 6/4
 Add dirtList ArrayList
+
+### 6/5
+Remove two Dirt variables(test,test2) and Dirt boolean (dirts). Replace with dirtList, loop through list to display, apply Body.touch() function
