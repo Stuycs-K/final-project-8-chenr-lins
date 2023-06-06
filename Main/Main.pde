@@ -1,19 +1,28 @@
-int x = 100;
+int x;
 int y;
-int size = 60;
-ArrayList<Body>birdList = new ArrayList<Body>();
-ArrayList<Body>removed = new ArrayList<Body>();
+int size;
+ArrayList<Body>birdList;
+ArrayList<Body>removed;
 Body down;
 Dirt test, test2;
-boolean dirts = true;
+boolean dirts;
 int maxBird = 10;
-int birdCount = 0;
+int birdCount;
 Bird head, tempBird;
-int mode=0;
-int score = 0;
+int mode;
+int score;
+boolean mode2;
 
 void restart() {
   background(135,206,235);
+  birdList = new ArrayList<Body>();
+  removed = new ArrayList<Body>();
+  dirts = true;
+  birdCount = 0;
+  mode=0;
+  score=0;
+  x=100;
+  size = 60;
   y=height;
   down = new Body(x,y,size);
   y-=size;
@@ -47,7 +56,8 @@ void keyPressed(){
       head.sety(-size);
     }
   }
-  if (mode==2) {
+  if (mode2==true) {
+    mode2=false;
     mode=0;
     restart();
   }
@@ -69,7 +79,7 @@ void draw(){
   if (mode==0) {
     textSize(100);
     tempBird.display1();
-    text("Press Key To Start", 0+10, height/2);
+    text("Press Key To Start", 20, height/2);
     fill(0);
   }
   if (mode==1) {
@@ -83,15 +93,10 @@ void draw(){
     }
     if(head.touch(test)||head.touch(test2)){
       head.display2();
-      mode=2;
+      mode2=true;
     }
     else{
       head.display1();
-    }
-    if (mode==2) {
-      textSize(60);
-      text("You Lose!", 300, height/4);
-      noLoop();
     }
     fill(255);
     textSize(30);
@@ -116,7 +121,7 @@ void draw(){
         head.apply(birdList.get(birdList.size()-1));
       }
     }
-    if (mode!=2){
+    if (!mode2){
       for (int i=0; i<removed.size(); i++) {
         Body b=removed.get(i);
         if(i==0){
@@ -136,6 +141,12 @@ void draw(){
     }
     test.display();
     test2.display();
+    if (mode2) {
+      textSize(60);
+      text("You Lose!", 300, height/4);
+      test.setspeed();
+      test2.setspeed();
+    }
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
