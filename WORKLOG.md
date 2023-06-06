@@ -67,12 +67,15 @@ Dirt: comment out different Dirt constructors. make a simpler one to test Birdst
 Body: change touch method so it applies to 0 not height<br>
 Main: remove Dirt ArrayList. add two temporary Dirt. attempt to fix bottom block's incorrect positioning
 
-### 5/26
+### 5/26 + 5/28
 Body: modify parts of apply speed so no Blocks collapsing (falling into each other)
 Main: add a ground. tried to make Body fall only if Dirt passed. had issues, pulled Regina's. fixed removed Blocks collapsing, instead will stack as main Body does.
 
 ### 5/30
 Started on bird Head. Write constructor, display, changes in display after keypress.
 
-### 5/31
+### 5/31 + 6/1
 Make bird face, add colors. Double size of display, Dirt, Bird, Block. Increase speeds, Fix problem where blocks did not fall even if nothing else under them. Add score, counts Dirts passed. cut down on both apply()s because most of that code ended up in toptouch/main.
+
+### 6/4
+Add dirtList ArrayList
