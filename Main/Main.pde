@@ -1,29 +1,23 @@
-int x;
+int x = 100;
 int y;
 int size = 60;
 ArrayList<Body>birdList = new ArrayList<Body>();
 ArrayList<Body>removed = new ArrayList<Body>();
 ArrayList<Dirt>dirtList = new ArrayList<Dirt>();
 Body down;
-Dirt test, test2;
-boolean dirts;
 int maxBird = 10;
-int birdCount;
+int birdCount = 0;
 Bird head, tempBird;
 int mode;
 int score;
 boolean mode2;
+int num = 0;
 
 void restart() {
   background(135,206,235);
-  birdList = new ArrayList<Body>();
-  removed = new ArrayList<Body>();
-  dirts = true;
   birdCount = 0;
   mode=0;
   score=0;
-  x=100;
-  size = 60;
   y=height;
   down = new Body(x,y,size);
   y-=size;
@@ -44,8 +38,6 @@ void setup(){
 
 void keyPressed(){
   if (mode==0) {
-    test = new Dirt(width,height-2*(((int)random(2,3))*size));
-    test2 = new Dirt(width,height-2*(((int)random(2,3))*size));
     mode=1;
     Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size));
     dirtList.add(dirt);
@@ -63,6 +55,27 @@ void keyPressed(){
     mode2=false;
     mode=0;
     restart();
+  }
+}
+
+void makeDirt(ArrayList<Dirt>list){
+  if (num==0){
+    Dirt dirt = new Dirt(width,height-2*(((int)random(2,3))*size));
+    list.add(dirt);
+    num=1;
+  }
+  if (num==1){
+    //stairs
+    /*
+    int ypos = height-2*(((int)random(2,3))*size);
+    Dirt nDirt = new Dirt(width,ypos);
+    dirtList.add(nDirt);
+    nDirt = new Dirt(width-size,ypos-size);
+    dirtList.add(nDirt);
+    nDirt = new Dirt(width-2*size,ypos-2*size);
+    dirtList.add(nDirt);
+    */
+    num=0;
   }
 }
 
@@ -86,21 +99,15 @@ void draw(){
     fill(0);
   }
   if (mode==1) {
-    if(test.getx()<test.getsize()*-1 && dirts){
-      test2 = new Dirt(width,height-2*(((int)random(2,3))*size));
-      dirts = false;
-    }
-    else if(test2.getx()<test.getsize()*-1 && dirts==false){
-      test = new Dirt(width,height-2*(((int)random(2,3))*size));
-      dirts = true;
-    }
-    if(head.touch(test)||head.touch(test2)){
-      head.display2();
-      mode2=true;
-    }
-    else{
+    //for(int i=0; i<dirtList.size();i++){
+      if(head.touch(dirtList.get(0))){
+        head.display2();
+        mode2=true;
+      }
+      else{
       head.display1();
     }
+    //}
     fill(255);
     textSize(30);
     text("Blocks Evaded " + score, width-250,50);
@@ -108,22 +115,25 @@ void draw(){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
         b.display();
-        if (b.touch(test) || b.touch(test2)) {
-          score++;
-          birdList.remove(b);
-          removed.add(b);
-          y+=size;
-          birdCount--;
-          i--;
-        }
-        else{
-          if (!(b.toptouch(test) || b.toptouch(test2))){
-          b.apply(birdList.get(i-1));
+        //for(int j=0; i<dirtList.size();j++){
+          if (!(head.toptouch(dirtList.get(0)))){
+            head.apply(birdList.get(birdList.size()-1));
           }
-        }
-        if (!(head.toptouch(test) || head.toptouch(test2))){
-          head.apply(birdList.get(birdList.size()-1));
-        }
+          if (b.touch(dirtList.get(0))){
+            score++;
+            birdList.remove(b);
+            removed.add(b);
+            y+=size;
+            birdCount--;
+            i--;
+            continue;
+          }
+          else{
+            if (!(b.toptouch(dirtList.get(0)))) {
+              b.apply(birdList.get(i-1));
+            }
+          }
+        //}
       }
       for (int i=0; i<removed.size(); i++) {
         Body b=removed.get(i);
@@ -148,8 +158,7 @@ void draw(){
       }
       textSize(60);
       text("You Lose!", 300, height/4);
-      test.setspeed();
-      test2.setspeed();
+      dirtList.get(0).setspeed();
     }
     for(int i=0; i<dirtList.size();i++){
       Dirt d = dirtList.get(i);
@@ -157,12 +166,9 @@ void draw(){
       if(d.getx()+d.getsize()<-1){
         dirtList.remove(i);
         i--;
-        Dirt newdirt = new Dirt(width,height-2*(((int)random(2,3))*size));
-        dirtList.add(newdirt);
+        makeDirt(dirtList);
       }
     }
-    test.display();
-    test2.display();
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
