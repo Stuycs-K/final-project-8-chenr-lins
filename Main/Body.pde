@@ -31,7 +31,7 @@ class Body {
   }
   
   boolean touch(Dirt sv){
-    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.geth()){
       xspeed=-10;
       return true;
     }
@@ -39,7 +39,7 @@ class Body {
   }
   
   boolean toptouch(Dirt sv){
-    return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.getsize());
+    return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
 }
 
@@ -64,7 +64,7 @@ class Bird extends Body {
   }
   
   boolean touch (Dirt sv){
-    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.geth()){
       display2();
       return true;
     }
