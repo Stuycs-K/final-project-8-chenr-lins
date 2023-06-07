@@ -115,11 +115,11 @@ void draw(){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
         b.display();
-        //for(int j=0; i<dirtList.size();j++){
-          if (!(head.toptouch(dirtList.get(0)))){
+        for(int j=0; i<dirtList.size();j++){
+          if (!(head.toptouch(dirtList.get(j)))){
             head.apply(birdList.get(birdList.size()-1));
           }
-          if (b.touch(dirtList.get(0))){
+          if (b.touch(dirtList.get(j))){
             score++;
             birdList.remove(b);
             removed.add(b);
@@ -129,11 +129,11 @@ void draw(){
             continue;
           }
           else{
-            if (!(b.toptouch(dirtList.get(0)))) {
+            if (!(b.toptouch(dirtList.get(j)))) {
               b.apply(birdList.get(i-1));
             }
           }
-        //}
+        }
       }
       for (int i=0; i<removed.size(); i++) {
         Body b=removed.get(i);
