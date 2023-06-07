@@ -77,9 +77,12 @@ void draw(){
   }
   noStroke();
   */
-  
+  fill(0,255,0);
   rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
+  textSize(30);
+  text("Highest Score: " + maxscore, width-265, 45);
+  text("Score: " + score, width-265,75);
   if (mode==0) {
     textSize(100);
     tempBird.display1();
@@ -88,11 +91,11 @@ void draw(){
   }
   if (mode==1) {
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(size,width,height-2*(((int)random(1,7))*size));
+      test2 = new Dirt(size,width,height-maxBird*size-size+(((int)random(1,7))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(size,width,height-2*(((int)random(1,7))*size));
+      test = new Dirt(size,width,height-maxBird*size-size+(((int)random(1,7))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
@@ -102,10 +105,6 @@ void draw(){
     else{
       head.display1();
     }
-    fill(255);
-    textSize(30);
-    text("Highest Score: " + maxscore, width-265, 40);
-    text("Score: " + score, width-265,70);
     if (!mode2){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
@@ -149,13 +148,13 @@ void draw(){
         b.display();
       }
       textSize(60);
-      text("You Lose!", 300, height/4);
+      text("You Lose!",100,67);
       test.setspeed();
       test2.setspeed();
     }
     test.display();
     test2.display();
-    fill(0,255,0);
-  rect(-5,height-size,width+5,size);
   }
+  fill(0,255,0);
+  rect(-5,height-size,width+5,size);
 }
