@@ -1,8 +1,9 @@
-class Dirt{ //<>//
-  int size,x,y,speed;
+class Dirt{ //<>// //<>//
+  int h,size,x,y,speed;
   
-  public Dirt(int xx,int yy){
-    size=60*(int)random(1,4);
+  public Dirt(int hh,int xx,int yy){
+    size=60*(int)random(1,6);
+    h=hh;
     x=xx;
     y=yy;
     speed=-10;
@@ -22,13 +23,13 @@ class Dirt{ //<>//
   
   void display(){
     fill(150,75,0);
-    rect(x,y,size,size,10);
+    rect(x,y,size,h,10);
     x+=speed;
   }
   
   int getx(){ return x; }
   int gety(){ return y; }
-  int getsize(){ return size; }
+  int geth(){ return h; }
   void setspeed(){ speed=0; }
   
 }
