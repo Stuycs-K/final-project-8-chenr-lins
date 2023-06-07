@@ -13,7 +13,8 @@ Main: tried pushing Body off when Dirt touches it; didn't work; Dirt stop moving
 
 ### 5/24
 
-Dirt: add getwidth(). Body: add getsize(). Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
+Dirt: add getwidth(). Body: add getsize(). 
+Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
 
 ### 5/25
 
@@ -25,7 +26,8 @@ Added and modify Gravity class, borrowed from lab
 
 ### 5/28
 
-Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt. Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
+Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt. 
+Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
 
 ### 5/30
 
@@ -37,7 +39,7 @@ Main: change so that head falls after Dirt passes; change shape of Bird and Body
 
 ### 6/1
 
-Add modes for start, during, end game. Change shape of Body and Dirt; change so that last draw doesn't duplicate Body
+Add modes for start, during, and end game so that it swaps when a certain condition is triggered; change shape of Body and Dirt; change so that last draw doesn't duplicate Body
 
 ### 6/4
 
@@ -46,6 +48,10 @@ working on restarting game with keypress after game ends; moved somethings in se
 ### 6/5
 
 Moved initially declared instances to inside the restart() method; get rid of mode 2 and added a mode2 boolean; move some of the codes in draw around to fit the newly added boolean; fix problem of disappearing Bodys when dirt touches it after end game.
+
+### 6/6
+
+Added a High Score to the top of right screen; change shape of Dirt from squares to rectangles; fix problem of pushing off the wrong Body
 
 ## GROUP MEMBER 2: Stephanie
 
