@@ -13,7 +13,6 @@ int mode;
 int score;
 int maxscore=0;
 boolean mode2;
-boolean first=true;
 
 void restart() {
   background(135,206,235);
@@ -45,8 +44,8 @@ void setup(){
 
 void keyPressed(){
   if (mode==0) {
-    test = new Dirt(size,width,height-2*(((int)random(2,3))*size));
-    test2 = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+    test = new Dirt(size,width,height-2*(((int)random(1,7))*size));
+    test2 = new Dirt(size,width,height-2*(((int)random(1,7))*size));
     mode=1;
   }
   if (mode==1) {
@@ -78,6 +77,8 @@ void draw(){
   }
   noStroke();
   */
+  
+  rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
   if (mode==0) {
     textSize(100);
@@ -87,17 +88,16 @@ void draw(){
   }
   if (mode==1) {
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+      test2 = new Dirt(size,width,height-2*(((int)random(1,7))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+      test = new Dirt(size,width,height-2*(((int)random(1,7))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
       head.display2();
       mode2=true;
-      first=false;
     }
     else{
       head.display1();
@@ -155,7 +155,7 @@ void draw(){
     }
     test.display();
     test2.display();
-  }
-  fill(0,255,0);
+    fill(0,255,0);
   rect(-5,height-size,width+5,size);
+  }
 }
