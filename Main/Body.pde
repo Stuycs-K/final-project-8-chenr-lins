@@ -17,7 +17,10 @@ class Body {
   void setx(int xx){ x+=xx; }
   void sety(int yy){ y+=yy; }
   
-  void display(){ rect(x,y,size,size,5); }
+  void display(){ 
+    fill(255);
+    rect(x,y,size,size,5); 
+  }
   
   void apply(){
     x+=xspeed;
