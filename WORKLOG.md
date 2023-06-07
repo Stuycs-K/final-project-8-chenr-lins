@@ -82,3 +82,6 @@ Add dirtList ArrayList
 
 ### 6/5
 Remove two Dirt variables(test,test2) and Dirt boolean (dirts). Replace with dirtList, loop through list to display, apply Body.touch() function
+
+### 6/6
+Add different shaped Dirt, try to make dirtList, loop and apply properly.
