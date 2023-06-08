@@ -77,7 +77,7 @@ void draw(){
   }
   noStroke();
   */
-  fill(0,255,0);
+  fill(150,75,0);
   rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
   textSize(30);
