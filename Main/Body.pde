@@ -17,7 +17,10 @@ class Body {
   void setx(int xx){ x+=xx; }
   void sety(int yy){ y+=yy; }
   
-  void display(){ rect(x,y,size,size,5); }
+  void display(){ 
+    fill(255);
+    rect(x,y,size,size,5); 
+  }
   
   void apply(){
     x+=xspeed;
@@ -31,7 +34,7 @@ class Body {
   }
   
   boolean touch(Dirt sv){
-    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.geth()){
       xspeed=-10;
       return true;
     }
@@ -39,7 +42,7 @@ class Body {
   }
   
   boolean toptouch(Dirt sv){
-    return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.getsize());
+    return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
 }
 
@@ -64,7 +67,7 @@ class Bird extends Body {
   }
   
   boolean touch (Dirt sv){
-    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.getsize()){
+    if(x+size==sv.getx() && y>=sv.gety() && y<sv.gety()+sv.geth()){
       display2();
       return true;
     }
