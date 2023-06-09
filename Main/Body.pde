@@ -1,23 +1,44 @@
 class Body {
   int x, y, size;
   int xspeed, yspeed;
-
+  boolean doomed,passed;
+  int time;
+  
   public Body(int xx, int yy, int s) {
     x=xx;
     y=yy;
     size=s;
     xspeed=0;
     yspeed=5;
+    int num = (int)random(0,2);
+    if(num==0){
+      doomed = true;
+    }
+    else{
+      doomed = false;
+    }
+    passed=false;
+    time = 0;
   }
   
   int getx(){ return x; }
   int gety(){ return y; }
   int getsize(){ return size; }
+  boolean getpassed() { return passed; }
+  boolean getdoomed() { return doomed; }
+  int gettime(){ return time; }
 
   void setx(int xx){ x+=xx; }
   void sety(int yy){ y+=yy; }
+  void setpassed(){ passed=true; }
+  void settime(){ time++; }
   
   void display(){ rect(x,y,size,size,5); }
+  void displayred(){
+    fill(255,0,0);
+    rect(x,y,size,size,5);
+    fill(255);
+  }
   
   void apply(){
     x+=xspeed;
@@ -40,6 +61,10 @@ class Body {
   
   boolean toptouch(Dirt sv){
     return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
+  }
+  
+  boolean touchDoom(Doom d){
+    return y==d.gety() && x+size==d.getx();
   }
 }
 
