@@ -13,7 +13,7 @@ Main: tried pushing Body off when Dirt touches it; didn't work; Dirt stop moving
 
 ### 5/24
 
-Dirt: add getwidth(). Body: add getsize(). 
+Dirt: add getwidth(). Body: add getsize().
 Main: only bottom Body moved when Dirt touches it; tried to move stack down after one Body is removed, didn't work
 
 ### 5/25
@@ -26,7 +26,7 @@ Added and modify Gravity class, borrowed from lab
 
 ### 5/28
 
-Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt. 
+Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt.
 Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
 
 ### 5/30
@@ -91,3 +91,9 @@ Remove two Dirt variables(test,test2) and Dirt boolean (dirts). Replace with dir
 
 ### 6/6
 Add different shaped Dirt, try to make dirtList, loop and apply properly.
+
+### 6/7 + 6/8
+Doom: new class that will trigger countdown on random Body blocks. when time = a set time, those blocks disappear. class has constructor, move and apply function
+Body: add touchDoom, return if in contact with Doom
+Dirt: change constructor, diversify square/rectangles
+Main: remove dirtList, add third Dirt, add Doom, add applys to Body regarding Dirt
