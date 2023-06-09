@@ -1,8 +1,16 @@
-class Dirt{ //<>// //<>//
+class Dirt{ //<>// //<>// //<>//
   int h,size,x,y,speed;
   
   public Dirt(int hh,int xx,int yy){
-    size=60*(int)random(1,6);
+    size=60*(int)random(1,8);
+    h=hh;
+    x=xx;
+    y=yy;
+    speed=-10;
+  }
+  
+  public Dirt(int ss, int hh,int xx,int yy){
+    size=60*ss;
     h=hh;
     x=xx;
     y=yy;
@@ -32,4 +40,7 @@ class Dirt{ //<>// //<>//
   int geth(){ return h; }
   void setspeed(){ speed=0; }
   
+  boolean downtouch(Body sv){
+    return y+h>sv.gety() && x+size>sv.getx() && x<(sv.getx()+sv.getsize());
+  }
 }

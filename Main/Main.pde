@@ -13,6 +13,7 @@ int mode;
 int score;
 int maxscore=0;
 boolean mode2;
+ArrayList<Dirt> dirtlist;
 
 void restart() {
   background(135,206,235);
@@ -50,7 +51,7 @@ void keyPressed(){
   }
   if (mode==1) {
     if(birdCount<maxBird){
-      if(!head.downtouch(test)  && !head.downtouch(test)){
+      if(!test.downtouch(head)  && !test2.downtouch(head)){
         Body b = new Body(x,y+size,size);
         birdList.add(b);
         y-=size;
@@ -159,4 +160,15 @@ void draw(){
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
+}
+
+void stair() {
+  dirtlist=new ArrayList<Dirt>();
+  Dirt d=new Dirt((size,width,height-size-(((int)random(1,10))*size);
+  dirtlist.add(d);
+  if (d.getsize()/60>1) {
+    for (int i=d.getsize()/60-1; i>0; i--) {
+      dirtlist.add(new Dirt((i,size,width,height-size-(((int)random(1,10))*size);
+    }
+  }
 }
