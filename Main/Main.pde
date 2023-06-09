@@ -50,11 +50,13 @@ void keyPressed(){
   }
   if (mode==1) {
     if(birdCount<maxBird){
-      Body b = new Body(x,y+size,size);
-      birdList.add(b);
-      y-=size;
-      birdCount++;
-      head.sety(-size);
+      if(!head.downtouch(test)  && !head.downtouch(test)){
+        Body b = new Body(x,y+size,size);
+        birdList.add(b);
+        y-=size;
+        birdCount++;
+        head.sety(-size);
+      }
     }
   }
   if (mode2==true) {

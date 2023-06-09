@@ -44,6 +44,7 @@ class Body {
   boolean toptouch(Dirt sv){
     return y+size>sv.gety() && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
+  
 }
 
 class Bird extends Body {
@@ -72,5 +73,9 @@ class Bird extends Body {
       return true;
     }
     return false;
+  }
+  
+  boolean downtouch(Dirt sv){
+    return sv.gety()+sv.geth()>y && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
 }
