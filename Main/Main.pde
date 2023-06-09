@@ -1,8 +1,6 @@
-int x;
-int y;
-int size;
-ArrayList<Body>birdList;
-ArrayList<Body>removed;
+int x, y, size;
+ArrayList<Body>birdList, removed;
+ArrayList<Dirt>dirtList;
 Body down;
 Dirt test, test2, test3;
 boolean dirts;
@@ -12,9 +10,9 @@ Bird head, tempBird;
 int mode;
 int score;
 int maxscore=0;
-int shape;
 boolean mode2;
 boolean first=true;
+Doom doom;
 
 void restart() {
   background(135,206,235);
@@ -26,6 +24,7 @@ void restart() {
   score=0;
   x=100;
   size = 60;
+  doom = new Doom(width/2,height-size);
   y=height;
   down = new Body(x,y,size);
   y-=size;
@@ -46,8 +45,9 @@ void setup(){
 
 void keyPressed(){
   if (mode==0) {
-    test = new Dirt(size,width,height-2*(((int)random(2,3))*size));
-    test2 = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+    test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+    test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+    test3 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),-100,height-2*(((int)random(2,4))*size));
     mode=1;
   }
   if (mode==1) {
@@ -67,17 +67,6 @@ void keyPressed(){
   }
 }
 
-boolean makeDirt(int shaape, Dirt t, Dirt t3){
-  if(shaape==0){
-    t = new Dirt(size,width,height-2*(((int)random(2,3))*size));
-    shaape = 1;
-    return true;
-  }
-  if(shaape==1){
-    
-    t = new Dirt(size,width,height-2*(((int)random(2,3))*size));
-  }
-}
 void draw(){
   background(135,206,235);
   /*
@@ -98,12 +87,19 @@ void draw(){
     fill(0);
   }
   if (mode==1) {
+    if(doom.getx()<size*-1){
+      doom = new Doom(width/2+size,height-size);
+    }
+
+    if(test3.getx()<test.geth()*-1){
+      test3 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width/2,height-2*(((int)random(2,4))*size));
+    }
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+      test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(size,width,height-2*(((int)random(2,3))*size));
+      test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
@@ -121,7 +117,16 @@ void draw(){
     if (!mode2){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
-        b.display();
+        if(doom.getx()==100+size && b.getdoomed()){
+          b.setpassed();
+        }
+        if(b.getpassed()){
+          b.settime();
+          b.displayred();
+        }
+        else{
+          b.display();
+        }
         if (b.touch(test) || b.touch(test2)) {
           score++;
           birdList.remove(b);
@@ -137,6 +142,12 @@ void draw(){
         }
         if (!(head.toptouch(test) || head.toptouch(test2))){
           head.apply(birdList.get(birdList.size()-1));
+        }
+        if(b.getdoomed() && b.getpassed() && b.gettime()==30){
+          birdList.remove(i);
+          i--;
+          y+=size;
+          birdCount--;
         }
       }
       for (int i=0; i<removed.size(); i++) {
@@ -167,6 +178,8 @@ void draw(){
     }
     test.display();
     test2.display();
+    doom.display();
+    doom.apply();
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
