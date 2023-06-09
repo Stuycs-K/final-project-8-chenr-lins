@@ -22,7 +22,7 @@ void restart() {
   birdCount = 0;
   mode=0;
   score=0;
-  x=100;
+  x=150;
   size = 60;
   y=height;
   down = new Body(x,y,size);
@@ -44,8 +44,8 @@ void setup(){
 
 void keyPressed(){
   if (mode==0) {
-    test = new Dirt(size,width,height-2*(((int)random(1,7))*size));
-    test2 = new Dirt(size,width,height-2*(((int)random(1,7))*size));
+    test = new Dirt(size,width,height-size-(((int)random(1,10))*size));
+    test2 = new Dirt(size,width,height-size-(((int)random(1,10))*size));
     mode=1;
   }
   if (mode==1) {
@@ -91,11 +91,11 @@ void draw(){
   }
   if (mode==1) {
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(size,width,height-maxBird*size-size+(((int)random(1,7))*size));
+      test2 = new Dirt(size,width,height-size-(((int)random(1,10))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(size,width,height-maxBird*size-size+(((int)random(1,7))*size));
+      test = new Dirt(size,width,height-size-(((int)random(1,10))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
