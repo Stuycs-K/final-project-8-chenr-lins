@@ -1,8 +1,7 @@
-int x;
+int x = 100;
 int y;
-int size;
-ArrayList<Body>birdList;
-ArrayList<Body>removed;
+int size = 60;
+ArrayList<Body>birdList, removed;
 Body down;
 Dirt test, test2;
 boolean dirts;
@@ -13,7 +12,7 @@ int mode;
 int score;
 int maxscore=0;
 boolean mode2;
-ArrayList<Dirt> dirtlist;
+Doom doom;
 
 void restart() {
   background(135,206,235);
@@ -23,6 +22,7 @@ void restart() {
   birdCount = 0;
   mode=0;
   score=0;
+  doom = new Doom(width/2,height);
   x=150;
   size = 60;
   y=height;
@@ -44,14 +44,12 @@ void setup(){
 }
 
 void keyPressed(){
-  if (mode==0) {
-    test = new Dirt(size,width,height-size-(((int)random(1,10))*size));
-    test2 = new Dirt(size,width,height-size-(((int)random(1,10))*size));
+  if (mode==0 && (key==RETURN|| key==ENTER)) {
+    test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+    test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
     mode=1;
-  }
-  if (mode==1) {
     if(birdCount<maxBird){
-      if(!test.downtouch(head)  && !test2.downtouch(head)){
+      if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
         Body b = new Body(x,y+size,size);
         birdList.add(b);
         y-=size;
@@ -60,7 +58,18 @@ void keyPressed(){
       }
     }
   }
-  if (mode2==true) {
+  if (mode==1 && key==' ' && !mode2) {
+    if(birdCount<maxBird){
+      if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
+        Body b = new Body(x,y+size,size);
+        birdList.add(b);
+        y-=size;
+        birdCount++;
+        head.sety(-size);
+      }
+    }
+  }
+  if (mode2 && (key==RETURN|| key==ENTER)) {
     mode2=false;
     mode=0;
     if (score>maxscore) maxscore=score;
@@ -70,16 +79,6 @@ void keyPressed(){
 
 void draw(){
   background(135,206,235);
-  /*
-  int testheight=height;
-  for(int i=0;i<12;i++){
-    stroke(0);
-    fill(135,206,235);
-    square(100,testheight,size);
-    testheight-=size;
-  }
-  noStroke();
-  */
   fill(150,75,0);
   rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
@@ -94,11 +93,16 @@ void draw(){
   }
   if (mode==1) {
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(size,width,height-size-(((int)random(1,10))*size));
+      test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(size,width,height-size-(((int)random(1,10))*size));
+      test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+    //  test2 = new Dirt(size,width,height-size-(((int)random(1,10))*size));
+    //  dirts = false;
+    //}
+    //else if(test2.getx()<test.geth()*-1 && dirts==false){
+    //  test = new Dirt(size,width,height-size-(((int)random(1,10))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
@@ -111,7 +115,16 @@ void draw(){
     if (!mode2){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
-        b.display();
+        if(doom.getx()==100+size && b.getdoomed()){
+          b.setpassed();
+        }
+        if(b.getpassed()){
+          b.settime();
+          b.displayred();
+        }
+        else{
+          b.display();
+        }
         if (b.touch(test) || b.touch(test2)) {
           score++;
           birdList.remove(b);
@@ -127,6 +140,13 @@ void draw(){
         }
         if (!(head.toptouch(test) || head.toptouch(test2))){
           head.apply(birdList.get(birdList.size()-1));
+        }
+        if(b.getdoomed() && b.getpassed() && b.gettime()==30){
+          doom = new Doom(width,height);
+          birdList.remove(i);
+          i--;
+          y+=size;
+          birdCount--;
         }
       }
       for (int i=0; i<removed.size(); i++) {
@@ -151,24 +171,15 @@ void draw(){
         b.display();
       }
       textSize(60);
-      text("You Lose!",100,67);
+      text("You Lose!", 100, 67);
       test.setspeed();
       test2.setspeed();
     }
     test.display();
     test2.display();
+    doom.display();
+    doom.apply();
   }
   fill(0,255,0);
   rect(-5,height-size,width+5,size);
-}
-
-void stair() {
-  dirtlist=new ArrayList<Dirt>();
-  Dirt d=new Dirt(size,width,height-size-(((int)random(1,10))*size));
-  dirtlist.add(d);
-  if (d.getsize()/60>1) {
-    for (int i=d.getsize()/60-1; i>0; i--) {
-      dirtlist.add(new Dirt(size,width,height-size-((int)random(1,10))*size));
-    }
-  }
 }
