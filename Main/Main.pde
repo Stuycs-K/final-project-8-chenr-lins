@@ -22,7 +22,9 @@ void restart() {
   birdCount = 0;
   mode=0;
   score=0;
-  doom = new Doom(width/2,height-size);
+  doom = new Doom(width/2,height);
+  x=150;
+  size = 60;
   y=height;
   down = new Body(x,y,size);
   y-=size;
@@ -42,12 +44,10 @@ void setup(){
 }
 
 void keyPressed(){
-  if (mode==0) {
+  if (mode==0 && (key==RETURN|| key==ENTER)) {
     test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
     test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
     mode=1;
-  }
-  if (mode==1) {
     if(birdCount<maxBird){
       if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
         Body b = new Body(x,y+size,size);
@@ -58,7 +58,18 @@ void keyPressed(){
       }
     }
   }
-  if (mode2==true) {
+  if (mode==1 && key==' ' && !mode2) {
+    if(birdCount<maxBird){
+      if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
+        Body b = new Body(x,y+size,size);
+        birdList.add(b);
+        y-=size;
+        birdCount++;
+        head.sety(-size);
+      }
+    }
+  }
+  if (mode2 && (key==RETURN|| key==ENTER)) {
     mode2=false;
     mode=0;
     if (score>maxscore) maxscore=score;
@@ -68,16 +79,6 @@ void keyPressed(){
 
 void draw(){
   background(135,206,235);
-  /*
-  int testheight=height;
-  for(int i=0;i<12;i++){
-    stroke(0);
-    fill(135,206,235);
-    square(100,testheight,size);
-    testheight-=size;
-  }
-  noStroke();
-  */
   fill(150,75,0);
   rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
@@ -136,7 +137,7 @@ void draw(){
           head.apply(birdList.get(birdList.size()-1));
         }
         if(b.getdoomed() && b.getpassed() && b.gettime()==30){
-          doom = new Doom(width,height-size);
+          doom = new Doom(width,height);
           birdList.remove(i);
           i--;
           y+=size;

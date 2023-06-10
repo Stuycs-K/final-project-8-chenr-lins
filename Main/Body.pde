@@ -97,7 +97,10 @@ class Bird extends Body {
     return false;
   }
   
+<<<<<<< HEAD
   boolean bottomtouch(Dirt sv){
     return sv.gety()+sv.geth()==y && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
+=======
+>>>>>>> Regina
 }

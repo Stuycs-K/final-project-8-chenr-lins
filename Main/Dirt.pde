@@ -1,4 +1,4 @@
-class Dirt{ //<>//
+class Dirt{ //<>// //<>//
   int h,size,x,y,speed;
   
   public Dirt(int hh, int ss,int xx, int yy){

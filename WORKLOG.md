@@ -53,6 +53,14 @@ Moved initially declared instances to inside the restart() method; get rid of mo
 
 Added a High Score to the top of right screen; change shape of Dirt from squares to rectangles; fix problem of pushing off the wrong Body
 
+### 6/7
+
+Added a top viewing bar at top and move the end game comment to the left of the bar
+
+### 6/8
+
+change problem of dirt not showing up at the bottom three layers; trying to stop adding body if a dirt is right above the head
+
 ## GROUP MEMBER 2: Stephanie
 
 ### 5/22
