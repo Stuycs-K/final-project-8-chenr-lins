@@ -44,9 +44,9 @@ void setup(){
 }
 
 void keyPressed(){
-  if (mode==0 && (key==RETURN|| key==ENTER)) {
-    test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
-    test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+  if (mode==0 && key==' ') {
+    test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,6))*size));
+    test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,6))*size));
     mode=1;
     if(birdCount<maxBird){
       if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
@@ -93,11 +93,11 @@ void draw(){
   }
   if (mode==1) {
     if(test.getx()<test.geth()*-1 && dirts){
-      test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+      test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,6))*size));
       dirts = false;
     }
     else if(test2.getx()<test.geth()*-1 && dirts==false){
-      test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
+      test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,6))*size));
       dirts = true;
     }
     if(head.touch(test)||head.touch(test2)){
