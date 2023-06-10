@@ -96,4 +96,8 @@ class Bird extends Body {
     }
     return false;
   }
+  
+  boolean bottomtouch(Dirt sv){
+    return sv.gety()+sv.geth()==y && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
+  }
 }
