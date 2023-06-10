@@ -1,8 +1,9 @@
-int x, y, size;
+int x = 100;
+int y;
+int size = 60;
 ArrayList<Body>birdList, removed;
-ArrayList<Dirt>dirtList;
 Body down;
-Dirt test, test2, test3;
+Dirt test, test2;
 boolean dirts;
 int maxBird = 9;
 int birdCount;
@@ -11,7 +12,6 @@ int mode;
 int score;
 int maxscore=0;
 boolean mode2;
-boolean first=true;
 Doom doom;
 
 void restart() {
@@ -22,8 +22,6 @@ void restart() {
   birdCount = 0;
   mode=0;
   score=0;
-  x=100;
-  size = 60;
   doom = new Doom(width/2,height-size);
   y=height;
   down = new Body(x,y,size);
@@ -47,16 +45,17 @@ void keyPressed(){
   if (mode==0) {
     test = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
     test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
-    test3 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),-100,height-2*(((int)random(2,4))*size));
     mode=1;
   }
   if (mode==1) {
     if(birdCount<maxBird){
-      Body b = new Body(x,y+size,size);
-      birdList.add(b);
-      y-=size;
-      birdCount++;
-      head.sety(-size);
+      if(!(head.bottomtouch(test) || head.bottomtouch(test2))){
+        Body b = new Body(x,y+size,size);
+        birdList.add(b);
+        y-=size;
+        birdCount++;
+        head.sety(-size);
+      }
     }
   }
   if (mode2==true) {
@@ -79,7 +78,12 @@ void draw(){
   }
   noStroke();
   */
+  fill(150,75,0);
+  rect(-5,-1, width+5,height-maxBird*size-size);
   fill(255);
+  textSize(30);
+  text("Highest Score: " + maxscore, width-265, 45);
+  text("Score: " + score, width-265,75);
   if (mode==0) {
     textSize(100);
     tempBird.display1();
@@ -87,13 +91,6 @@ void draw(){
     fill(0);
   }
   if (mode==1) {
-    if(doom.getx()<size*-1){
-      doom = new Doom(width/2+size,height-size);
-    }
-
-    if(test3.getx()<test.geth()*-1){
-      test3 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width/2,height-2*(((int)random(2,4))*size));
-    }
     if(test.getx()<test.geth()*-1 && dirts){
       test2 = new Dirt(60*((int)random(1,4)),60*((int)random(1,4)),width,height-2*(((int)random(2,4))*size));
       dirts = false;
@@ -105,15 +102,10 @@ void draw(){
     if(head.touch(test)||head.touch(test2)){
       head.display2();
       mode2=true;
-      first=false;
     }
     else{
       head.display1();
     }
-    fill(255);
-    textSize(30);
-    text("Highest Score: " + maxscore, width-265, 40);
-    text("Score: " + score, width-265,70);
     if (!mode2){
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
@@ -144,6 +136,7 @@ void draw(){
           head.apply(birdList.get(birdList.size()-1));
         }
         if(b.getdoomed() && b.getpassed() && b.gettime()==30){
+          doom = new Doom(width,height-size);
           birdList.remove(i);
           i--;
           y+=size;
@@ -172,7 +165,7 @@ void draw(){
         b.display();
       }
       textSize(60);
-      text("You Lose!", 300, height/4);
+      text("You Lose!", 100, 67);
       test.setspeed();
       test2.setspeed();
     }
