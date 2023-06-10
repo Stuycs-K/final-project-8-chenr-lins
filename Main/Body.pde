@@ -33,10 +33,10 @@ class Body {
   void setpassed(){ passed=true; }
   void settime(){ time++; }
   
-  void display(){ rect(x,y,size,size,5); }
+  void display(){ rect(x,y,size,size,10); }
   void displayred(){
     fill(255,0,0);
-    rect(x,y,size,size,5);
+    rect(x,y,size,size,10);
     fill(255);
   }
   
@@ -97,10 +97,7 @@ class Bird extends Body {
     return false;
   }
   
-<<<<<<< HEAD
   boolean bottomtouch(Dirt sv){
     return sv.gety()+sv.geth()==y && (x+size)>sv.getx() && x<(sv.getx()+sv.geth());
   }
-=======
->>>>>>> Regina
 }

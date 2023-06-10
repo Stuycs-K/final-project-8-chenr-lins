@@ -15,7 +15,7 @@ class Doom {
   }
 
   void apply(){
-    if(y+size>height-size){
+    if(y+size>height){
       y+=yspeed;
     }
     else if(x>100+60){
