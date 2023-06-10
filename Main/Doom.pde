@@ -6,19 +6,19 @@ class Doom {
     y=yy;
     size = 60;
     yspeed=-4;
-    xspeed=-5;
+    xspeed=-4;
   }
   
   void display(){
     fill(255,0,0);
-    square(x,y,size);
+    rect(x,y,size,size,10);
   }
   
   void apply(){
     if(y+size>height-size){
       y+=yspeed;
     }
-    else{
+    else if(x>100+60){
       x+=xspeed;
     }
   }
