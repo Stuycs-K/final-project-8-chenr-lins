@@ -164,11 +164,11 @@ void draw(){
 
 void stair() {
   dirtlist=new ArrayList<Dirt>();
-  Dirt d=new Dirt((size,width,height-size-(((int)random(1,10))*size);
+  Dirt d=new Dirt(size,width,height-size-(((int)random(1,10))*size));
   dirtlist.add(d);
   if (d.getsize()/60>1) {
     for (int i=d.getsize()/60-1; i>0; i--) {
-      dirtlist.add(new Dirt((i,size,width,height-size-(((int)random(1,10))*size);
+      dirtlist.add(new Dirt(size,width,height-size-((int)random(1,10))*size));
     }
   }
 }

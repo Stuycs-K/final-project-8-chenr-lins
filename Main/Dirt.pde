@@ -38,6 +38,7 @@ class Dirt{ //<>// //<>// //<>//
   int getx(){ return x; }
   int gety(){ return y; }
   int geth(){ return h; }
+  int getsize() {return size; }
   void setspeed(){ speed=0; }
   
   boolean downtouch(Body sv){
