@@ -166,7 +166,7 @@ void draw(){
         b.display();
       }
       textSize(60);
-      text("You Lose!", 100, 67);
+      text("Game Over!", 100, 67);
       test.setspeed();
       test2.setspeed();
     }
