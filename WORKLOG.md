@@ -20,13 +20,10 @@ Main: only bottom Body moved when Dirt touches it; tried to move stack down afte
 
 Main: stack falls correctly other than the very bottom one. Dirt and Body: comment out methods for testing purpose
 
-### 5/26
+### 5/26, 5/27, 5/28
 
-Added and modify Gravity class, borrowed from lab
-
-### 5/28
-
-Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt.
+Added and modify Gravity class, borrowed from lab. 
+Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt. 
 Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
 
 ### 5/30
@@ -41,7 +38,7 @@ Main: change so that head falls after Dirt passes; change shape of Bird and Body
 
 Add modes for start, during, and end game so that it swaps when a certain condition is triggered; change shape of Body and Dirt; change so that last draw doesn't duplicate Body
 
-### 6/4
+### 6/2, 6/4
 
 working on restarting game with keypress after game ends; moved somethings in setup into a method so that it can be recalled ater restarting game
 
@@ -60,6 +57,10 @@ Added a top viewing bar at top and move the end game comment to the left of the 
 ### 6/8
 
 change problem of dirt not showing up at the bottom three layers; trying to stop adding body if a dirt is right above the head
+
+### 6/9, 6/10, 6/11
+
+Stop adding body after keypress if a dirt is right above the head works; tried making stair-like dirt shapes but didn't work; change so that only pressing the spacebar starts the game and adds to the Body stack; only pressing the enter/return key restart the game after game ends; change ending text to Game Over
 
 ## GROUP MEMBER 2: Stephanie
 
