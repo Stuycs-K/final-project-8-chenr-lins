@@ -22,8 +22,8 @@ Main: stack falls correctly other than the very bottom one. Dirt and Body: comme
 
 ### 5/26, 5/27, 5/28
 
-Added and modify Gravity class, borrowed from lab. 
-Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt. 
+Added and modify Gravity class, borrowed from lab.
+Body: moved gravity stuff into here and manipulate it to fit code, didn't work; added toptouch method to check if the bottom of a Body is touching a Dirt.
 Main: if bottom of a Body touches a Dirt, Body doesn't fall; it'll fall after the Dirt passes
 
 ### 5/30
@@ -106,3 +106,11 @@ Doom: new class that will trigger countdown on random Body blocks. when time = a
 Body: add touchDoom, return if in contact with Doom
 Dirt: change constructor, diversify square/rectangles
 Main: remove dirtList, add third Dirt, add Doom, add applys to Body regarding Dirt
+
+### 6/9
+Doom: make block not move past body
+Main: remove test3
+Body: add bottomtouch, check if below a Dirt
+
+### 6/11
+rename test, test2 > dirt, dirt2
