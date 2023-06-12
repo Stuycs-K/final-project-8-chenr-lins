@@ -32,6 +32,7 @@ class Body {
   void sety(int yy){ y+=yy; }
   void setpassed(){ passed=true; }
   void settime(){ time++; }
+  void setdoomed(){ doomed = false;}
   
   void display(){ rect(x,y,size,size,10); }
   void displayred(){
