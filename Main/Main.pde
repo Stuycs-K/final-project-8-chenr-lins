@@ -177,5 +177,5 @@ void draw(){
     doom.apply();
   }
   fill(0,255,0);
-  //rect(-5,height-size,width+5,size);
+  rect(-5,height-size,width+5,size);
 }
