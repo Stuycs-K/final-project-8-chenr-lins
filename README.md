@@ -7,7 +7,7 @@ Members: Regina Chen, Stephanie Lin
 
 ## Overview
 
-This is a recreation of the game named Square Bird. It’s a two-dimension side-scrolling game with your main character being a square bird. 
+This is a recreation of the game named Square Bird. It’s a two-dimension side-scrolling game with your main character being a square bird. The basic of the game is to make body stacks by pressing a key and to remain as long as possible without crashing the bird head into an obstacle.
 
 ## Instructions
 
