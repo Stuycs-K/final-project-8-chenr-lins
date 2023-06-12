@@ -109,6 +109,7 @@ void draw(){
       head.display1();
     }
     if (!mode2){
+      birdList.get(1).setdoomed();
       for(int i=1; i<birdList.size(); i++){
         Body b=birdList.get(i);
         if(doom.getx()==100+size && b.getdoomed()){
@@ -138,7 +139,6 @@ void draw(){
           head.apply(birdList.get(birdList.size()-1));
         }
         if(b.getdoomed() && b.getpassed() && b.gettime()==30){
-          doom = new Doom(width,height);
           birdList.remove(i);
           i--;
           y+=size;
@@ -170,6 +170,9 @@ void draw(){
       text("Game Over!", 100, 67);
       dirt.setspeed();
       dirt2.setspeed();
+    }
+    if(doom.getx()<-1){
+      doom = new Doom(width,height);
     }
     dirt.display();
     dirt2.display();

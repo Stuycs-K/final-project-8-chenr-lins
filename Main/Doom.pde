@@ -6,7 +6,7 @@ class Doom {
     y=yy;
     size = 60;
     yspeed=-4;
-    xspeed=-4;
+    xspeed=-10;
   }
   
   void display(){
@@ -18,7 +18,7 @@ class Doom {
     if(y+size>height){
       y+=yspeed;
     }
-    else if(x>100+60){
+    else{
       x+=xspeed;
     }
   }
