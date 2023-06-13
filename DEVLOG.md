@@ -15,4 +15,5 @@
 
 ### Content, Resources
 - Game Square Bird, which our project attempts to emulate.
+- Processing reference
 - https://happycoding.io/tutorials/processing/collision-detection : research for how collision in processing works
